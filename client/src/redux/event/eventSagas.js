@@ -17,7 +17,7 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
     const connectRef = yield firestore
       .collection(`events`)
       .doc(enterCode)
-      .collection("properties")
+      .collection("data")
       .doc("connect")
     const snapshot = yield connectRef.get()
     const connect = yield snapshot.data()
@@ -61,7 +61,7 @@ function* existEventAsync({ payload: { enterCode, history } }) {
     const connectRef = yield firestore
       .collection(`events`)
       .doc(enterCode)
-      .collection("properties")
+      .collection("data")
       .doc("connect")
     const snapshot = yield connectRef.get()
     const event = yield snapshot.data()

@@ -19,7 +19,7 @@ const App = ({ eventDataConnect, updateDataEvent }) => {
     firestore
       .collection(`events`)
       .doc(enterCode)
-      .collection("properties")
+      .collection("data")
       .doc("event")
       .onSnapshot(snapshot => {
         const data = snapshot.data()
