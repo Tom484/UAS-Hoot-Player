@@ -1,5 +1,5 @@
 import EventActions from "./eventTypes"
-import { updateData } from "./eventUtils"
+import { updateDataEvent } from "./eventUtils"
 
 const initialState = {
   isJoiningEvent: false,
@@ -35,8 +35,8 @@ const eventReducer = (state = initialState, action) => {
       return { ...state, isExistingEvent: false, errorMessage: "" }
     case EventActions.EXIST_EVENT_FAILURE:
       return { ...state, isExistingEvent: false, errorMessage: action.payload }
-    case EventActions.UPDATE_EVENT:
-      return { ...state, data: updateData(state.data, action.payload) }
+    case EventActions.UPDATE_DATA_EVENT:
+      return { ...state, data: updateDataEvent(state.data, action.payload) }
     default:
       return state
   }

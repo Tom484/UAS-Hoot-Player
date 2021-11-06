@@ -1,5 +1,5 @@
 import { deleteReference } from "../../functions/redux/reduxFunctions"
 
-export const updateData = (previousData, data) => {
-  return deleteReference({ ...previousData, ...data })
+export const updateDataEvent = (previousData, data) => {
+  return deleteReference({ ...previousData, event: { ...data } })
 }

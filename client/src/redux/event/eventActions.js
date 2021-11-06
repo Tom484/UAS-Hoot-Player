@@ -39,7 +39,7 @@ export const existEventFailure = errorMessage => ({
   payload: errorMessage,
 })
 
-export const updateEventData = data => ({
-  type: EventAction.UPDATE_EVENT,
+export const updateDataEvent = data => ({
+  type: EventAction.UPDATE_DATA_EVENT,
   payload: data,
 })

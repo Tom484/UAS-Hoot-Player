@@ -5,10 +5,10 @@ import { firestore } from "../firebase/firebaseUtils"
 import EventPage from "../pages/event/EventPage"
 import HomePage from "../pages/home/HomePage"
 import NotFoundPage from "../pages/notFound/NotFoundPage"
-import { updateEventData } from "../redux/event/eventActions"
+import { updateDataEvent } from "../redux/event/eventActions"
 import { selectEventDataConnect } from "../redux/event/eventSelectors"
 
-const App = ({ eventDataConnect, updateEventData }) => {
+const App = ({ eventDataConnect, updateDataEvent }) => {
   const { enterCode } = eventDataConnect || ""
   const [previousEnterCode, setPreviousEnterCode] = useState("")
 
@@ -16,7 +16,6 @@ const App = ({ eventDataConnect, updateEventData }) => {
     if (!enterCode) return
     if (enterCode === previousEnterCode) return
     setPreviousEnterCode(enterCode)
-    console.log("update")
     firestore
       .collection(`events`)
       .doc(enterCode)
@@ -24,8 +23,7 @@ const App = ({ eventDataConnect, updateEventData }) => {
       .doc("event")
       .onSnapshot(snapshot => {
         const data = snapshot.data()
-        console.log(data)
-        updateEventData(data)
+        updateDataEvent(data)
       })
 
     // eslint-disable-next-line
@@ -49,7 +47,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateEventData: data => dispatch(updateEventData(data)),
+  updateDataEvent: data => dispatch(updateDataEvent(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

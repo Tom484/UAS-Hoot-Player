@@ -50,6 +50,7 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
       },
     }
     yield put(joinEventSuccess(data))
+    yield history.push("/event")
   } catch (error) {
     yield put(joinEventFailure(error.message))
   }
