@@ -1,7 +1,6 @@
 import { all, call, put, takeLatest } from "redux-saga/effects"
 import { firestore } from "../../firebase/firebaseUtils"
 
-import uuid from "react-uuid"
 import EventActions from "./eventTypes"
 import { existEventFailure, existEventNotExist, existEventSuccess } from "./eventActions"
 
