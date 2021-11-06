@@ -38,3 +38,8 @@ export const existEventFailure = errorMessage => ({
   type: EventAction.EXIST_EVENT_FAILURE,
   payload: errorMessage,
 })
+
+export const updateEventData = data => ({
+  type: EventAction.UPDATE_EVENT,
+  payload: data,
+})

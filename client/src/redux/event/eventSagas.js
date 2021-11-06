@@ -1,40 +1,58 @@
 import { all, call, put, takeLatest } from "redux-saga/effects"
 import { firestore } from "../../firebase/firebaseUtils"
+import uuid from "react-uuid"
 
 import EventActions from "./eventTypes"
-import { existEventFailure, existEventNotExist, existEventSuccess } from "./eventActions"
+import {
+  existEventFailure,
+  existEventNotExist,
+  existEventSuccess,
+  joinEventDeny,
+  joinEventFailure,
+  joinEventSuccess,
+} from "./eventActions"
 
-export function* joinEventAsync({ payload: { displayName, eventId, history } }) {
-  // try {
-  //   const collectionRef = yield firestore
-  //     .collection(`events`)
-  //     .doc(eventId)
-  //     .collection("properties")
-  //     .doc("connect")
-  //   const snapshot = yield collectionRef.get()
-  //   const connect = yield snapshot.data()
-  //   const playerId = uuid()
-  //   if (!connect) return put(joinEventFailure("Enter correct eventId"))
-  //   if (!connect.isOpen) return put(joinEventFailure("Event is closed"))
-  //   const playersRef = yield firestore
-  //     .collection(`events`)
-  //     .doc(eventId)
-  //     .collection("players")
-  //     .doc(playerId)
-  //   yield playersRef.set({ id: playerId, displayName, joinAt: new Date().getTime() })
-  //   const eventPropertiesEventRef = yield firestore
-  //     .collection(`events`)
-  //     .doc(eventId)
-  //     .collection("players")
-  //     .doc(playerId)
-  //   const snapShot = yield eventPropertiesEventRef.get()
-  //   const eventPropertiesEvent = yield snapShot.data() || {}
-  //   console.log(eventPropertiesEvent)
-  //   yield put(joinEventSuccess())
-  //   yield history.push("/event")
-  // } catch (error) {
-  //   yield put(joinEventFailure(error.message))
-  // }
+export function* joinEventAsync({ payload: { displayName, enterCode, history } }) {
+  try {
+    const connectRef = yield firestore
+      .collection(`events`)
+      .doc(enterCode)
+      .collection("properties")
+      .doc("connect")
+    const snapshot = yield connectRef.get()
+    const connect = yield snapshot.data()
+
+    if (!connect) {
+      yield put(joinEventDeny("Event was not found"))
+      return
+    } else if (!connect.isOpen) {
+      yield put(joinEventDeny("Event is closed"))
+      return
+    }
+
+    const playerId = uuid()
+
+    const playersRef = yield firestore
+      .collection(`events`)
+      .doc(enterCode)
+      .collection("players")
+      .doc(playerId)
+    yield playersRef.set({ id: playerId, displayName, joinAt: new Date().getTime() })
+
+    const data = {
+      event: {},
+      connect: {
+        enterCode: enterCode,
+      },
+      profile: {
+        id: playerId,
+        displayName,
+      },
+    }
+    yield put(joinEventSuccess(data))
+  } catch (error) {
+    yield put(joinEventFailure(error.message))
+  }
 }
 
 function* existEventAsync({ payload: { enterCode, history } }) {

@@ -1,4 +1,5 @@
 import EventActions from "./eventTypes"
+import { updateData } from "./eventUtils"
 
 const initialState = {
   isJoiningEvent: false,
@@ -21,7 +22,7 @@ const eventReducer = (state = initialState, action) => {
     case EventActions.JOIN_EVENT_START:
       return { ...state, isJoiningEvent: true, errorMessage: "" }
     case EventActions.JOIN_EVENT_SUCCESS:
-      return { ...state, isJoiningEvent: false, errorMessage: "" }
+      return { ...state, isJoiningEvent: false, data: action.payload, errorMessage: "" }
     case EventActions.JOIN_EVENT_DENY:
       return { ...state, isJoiningEvent: false, errorMessage: "" }
     case EventActions.JOIN_EVENT_FAILURE:
@@ -34,6 +35,8 @@ const eventReducer = (state = initialState, action) => {
       return { ...state, isExistingEvent: false, errorMessage: "" }
     case EventActions.EXIST_EVENT_FAILURE:
       return { ...state, isExistingEvent: false, errorMessage: action.payload }
+    case EventActions.UPDATE_EVENT:
+      return { ...state, data: updateData(state.data, action.payload) }
     default:
       return state
   }
