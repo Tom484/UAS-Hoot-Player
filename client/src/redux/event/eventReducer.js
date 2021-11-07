@@ -4,6 +4,7 @@ import { updateDataEvent } from "./eventUtils"
 const initialState = {
   isJoiningEvent: false,
   isExistingEvent: false,
+  isVotingEvent: false,
   errorMessage: "",
   data: {
     event: {},
@@ -35,6 +36,12 @@ const eventReducer = (state = initialState, action) => {
       return { ...state, isExistingEvent: false, errorMessage: "" }
     case EventActions.EXIST_EVENT_FAILURE:
       return { ...state, isExistingEvent: false, errorMessage: action.payload }
+    case EventActions.VOTE_EVENT_START:
+      return { ...state, isVotingEvent: true, errorMessage: "" }
+    case EventActions.VOTE_EVENT_SUCCESS:
+      return { ...state, isVotingEvent: false, errorMessage: "" }
+    case EventActions.VOTE_EVENT_FAILURE:
+      return { ...state, isVotingEvent: false, errorMessage: action.payload }
     case EventActions.UPDATE_DATA_EVENT:
       return { ...state, data: updateDataEvent(state.data, action.payload) }
     default:

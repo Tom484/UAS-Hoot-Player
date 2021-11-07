@@ -39,6 +39,21 @@ export const existEventFailure = errorMessage => ({
   payload: errorMessage,
 })
 
+export const voteEventStart = data => ({
+  type: EventAction.VOTE_EVENT_START,
+  payload: data,
+})
+
+export const voteEventSuccess = data => ({
+  type: EventAction.VOTE_EVENT_SUCCESS,
+  payload: data,
+})
+
+export const voteEventFailure = errorMessage => ({
+  type: EventAction.VOTE_EVENT_FAILURE,
+  payload: errorMessage,
+})
+
 export const updateDataEvent = data => ({
   type: EventAction.UPDATE_DATA_EVENT,
   payload: data,

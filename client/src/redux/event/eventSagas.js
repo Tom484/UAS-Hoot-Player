@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from "redux-saga/effects"
+import { all, call, put, select, takeLatest } from "redux-saga/effects"
 import { firestore } from "../../firebase/firebaseUtils"
 import uuid from "react-uuid"
 
@@ -10,7 +10,10 @@ import {
   joinEventDeny,
   joinEventFailure,
   joinEventSuccess,
+  voteEventFailure,
+  voteEventSuccess,
 } from "./eventActions"
+import { selectEventDataConnect, selectEventDataProfile } from "./eventSelectors"
 
 export function* joinEventAsync({ payload: { displayName, enterCode, history } }) {
   try {
@@ -76,6 +79,24 @@ function* existEventAsync({ payload: { enterCode, history } }) {
   }
 }
 
+function* voteEventAsync({ payload: { option, submitTime } }) {
+  try {
+    const profile = yield select(selectEventDataProfile)
+    const connect = yield select(selectEventDataConnect)
+
+    const connectRef = yield firestore
+      .collection(`events`)
+      .doc(connect.enterCode)
+      .collection("answers")
+      .doc(profile.id)
+    yield connectRef.set({ option, submitTime, id: profile.id })
+
+    yield put(voteEventSuccess())
+  } catch (error) {
+    yield put(voteEventFailure(error.message))
+  }
+}
+
 export function* joinEventStart() {
   yield takeLatest(EventActions.JOIN_EVENT_START, joinEventAsync)
 }
@@ -84,6 +105,10 @@ export function* existEventStart() {
   yield takeLatest(EventActions.EXIST_EVENT_START, existEventAsync)
 }
 
+export function* voteEventStart() {
+  yield takeLatest(EventActions.VOTE_EVENT_START, voteEventAsync)
+}
+
 export function* eventSagas() {
-  yield all([call(joinEventStart), call(existEventStart)])
+  yield all([call(joinEventStart), call(existEventStart), call(voteEventStart)])
 }
