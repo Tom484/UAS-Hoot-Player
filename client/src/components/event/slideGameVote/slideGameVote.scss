@@ -1,0 +1,64 @@
+@import "../../../styles/colors.scss";
+
+.slide-game-vote {
+  padding: 15px;
+  height: 100vh;
+  .slide-game-vote-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    height: 100%;
+    .btn-vote {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border-radius: 10px;
+      border: none;
+      .icon-vote {
+        width: 20vw;
+        height: 20vw;
+        max-width: 25vh;
+        max-height: 25vh;
+      }
+      box-shadow: var(--box-shadow-medium);
+
+      &.vote-1 {
+        .icon-vote {
+          fill: rgb(113, 52, 255);
+        }
+        background: rgba(113, 52, 255, 0.12);
+        &:hover {
+          background: rgba(113, 52, 255, 0.2);
+        }
+      }
+      &.vote-2 {
+        .icon-vote {
+          fill: rgb(18, 81, 255);
+        }
+        background: rgba(18, 81, 255, 0.12);
+        &:hover {
+          background: rgba(18, 81, 255, 0.2);
+        }
+      }
+      &.vote-3 {
+        .icon-vote {
+          fill: rgb(255, 23, 224);
+        }
+        background: rgba(255, 23, 224, 0.12);
+        &:hover {
+          background: rgba(255, 23, 224, 0.2);
+        }
+      }
+      &.vote-4 {
+        .icon-vote {
+          fill: rgb(255, 15, 95);
+        }
+        background: rgba(255, 15, 95, 0.12);
+        &:hover {
+          background: rgba(255, 15, 95, 0.2);
+        }
+      }
+    }
+  }
+}

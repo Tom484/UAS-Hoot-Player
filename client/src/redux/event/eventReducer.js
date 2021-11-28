@@ -1,5 +1,5 @@
 import EventActions from "./eventTypes"
-import { updateDataEvent } from "./eventUtils"
+import { updateDataEvent, updateResultsEvent } from "./eventUtils"
 
 const initialState = {
   isJoiningEvent: false,
@@ -15,6 +15,7 @@ const initialState = {
       id: "",
       displayName: "",
     },
+    results: {},
   },
 }
 
@@ -44,6 +45,8 @@ const eventReducer = (state = initialState, action) => {
       return { ...state, isVotingEvent: false, errorMessage: action.payload }
     case EventActions.UPDATE_DATA_EVENT:
       return { ...state, data: updateDataEvent(state.data, action.payload) }
+    case EventActions.UPDATE_RESULTS_EVENT:
+      return { ...state, data: updateResultsEvent(state.data, action.payload) }
     default:
       return state
   }

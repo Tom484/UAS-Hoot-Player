@@ -58,3 +58,8 @@ export const updateDataEvent = data => ({
   type: EventAction.UPDATE_DATA_EVENT,
   payload: data,
 })
+
+export const updateResultsEvent = data => ({
+  type: EventAction.UPDATE_RESULTS_EVENT,
+  payload: data,
+})

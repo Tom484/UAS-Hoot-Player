@@ -5,10 +5,10 @@ import { firestore } from "../firebase/firebaseUtils"
 import EventPage from "../pages/event/EventPage"
 import HomePage from "../pages/home/HomePage"
 import NotFoundPage from "../pages/notFound/NotFoundPage"
-import { updateDataEvent } from "../redux/event/eventActions"
-import { selectEventDataConnect } from "../redux/event/eventSelectors"
+import { updateDataEvent, updateResultsEvent } from "../redux/event/eventActions"
+import { selectEventDataConnect, selectEventDataProfile } from "../redux/event/eventSelectors"
 
-const App = ({ eventDataConnect, updateDataEvent }) => {
+const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResultsEvent }) => {
   const { enterCode } = eventDataConnect || ""
   const [previousEnterCode, setPreviousEnterCode] = useState("")
 
@@ -25,9 +25,24 @@ const App = ({ eventDataConnect, updateDataEvent }) => {
         const data = snapshot.data()
         updateDataEvent(data)
       })
-
     // eslint-disable-next-line
   }, [eventDataConnect])
+
+  useEffect(() => {
+    if (!enterCode) return
+    if (enterCode === previousEnterCode) return
+    setPreviousEnterCode(enterCode)
+    firestore
+      .collection(`events`)
+      .doc(enterCode)
+      .collection("players")
+      .doc(eventDataProfile.id)
+      .onSnapshot(snapshot => {
+        const data = snapshot.data()
+        updateResultsEvent(data)
+      })
+    // eslint-disable-next-line
+  }, [eventDataProfile, eventDataConnect])
 
   return (
     <div>
@@ -44,10 +59,12 @@ const App = ({ eventDataConnect, updateDataEvent }) => {
 
 const mapStateToProps = state => ({
   eventDataConnect: selectEventDataConnect(state),
+  eventDataProfile: selectEventDataProfile(state),
 })
 
 const mapDispatchToProps = dispatch => ({
   updateDataEvent: data => dispatch(updateDataEvent(data)),
+  updateResultsEvent: data => dispatch(updateResultsEvent(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
