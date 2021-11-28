@@ -2,7 +2,7 @@
 
 .slide-game-vote {
   padding: 15px;
-  height: 100vh;
+  height: calc(100vh - 50px);
   .slide-game-vote-container {
     display: grid;
     align-items: center;

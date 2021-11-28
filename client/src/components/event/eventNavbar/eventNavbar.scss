@@ -1,0 +1,25 @@
+@import "../../../styles/colors.scss";
+
+.event-navbar {
+  width: 100%;
+  box-shadow: var(--box-shadow-medium);
+  z-index: 10000;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  .event-navbar-container {
+    padding: 0px 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    .score {
+      font-weight: 500;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import { ICONCloudBold, ICONDropBold, ICONFlashBold, ICONMoonBold } from "../../../icons/Icons"
 import { voteEventStart } from "../../../redux/event/eventActions"
+import Loading1 from "../../animation/loading1/Loading1"
 
 import "./slideGameVote.scss"
 
@@ -14,7 +15,11 @@ const SlideGameVote = ({ voteEvent }) => {
   }
 
   if (voted) {
-    return <div>Action Completed</div>
+    return (
+      <div className="cover-fullscreen ">
+        <Loading1 />
+      </div>
+    )
   }
 
   return (
