@@ -11,7 +11,7 @@ const EventNavbar = ({ eventDataResults, eventDataProfile }) => {
     <div className="event-navbar">
       <div className="event-navbar-container">
         <span className="name">{eventDataProfile?.displayName}</span>
-        <span className="score">{eventDataProfile?.score | 0}</span>
+        <span className="score">{eventDataResults?.score | 0}</span>
       </div>
     </div>
   )
