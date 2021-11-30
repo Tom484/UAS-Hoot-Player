@@ -1,9 +1,9 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
-import BubbleBackground from "../../components/bubbleBackground/BubbleBackground"
+import BubbleBackground from "../../components/components/bubbleBackground/BubbleBackground"
 import EventJoinEventId from "../../components/event/eventJoinEnterCode/EventJoinEnterCode"
 import EventJoinNickname from "../../components/event/eventJoinNickname/EventJoinNickname"
-import LineBackground from "../../components/lineBackground/LineBackground"
+import LineBackground from "../../components/components/lineBackground/LineBackground"
 import { ICONLogoOutline } from "../../icons/Icons"
 
 import "./homePage.scss"
