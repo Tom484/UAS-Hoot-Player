@@ -3,18 +3,23 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import { existEventStart } from "../../../redux/event/eventActions"
 
+import "./eventJoinEnterCode.scss"
+
 const EventJoinEventId = ({ existEvent, history }) => {
   const [enterCode, setEnterCode] = useState("")
-
   const clickHandler = () => {
     existEvent({ enterCode, history })
   }
 
   return (
-    <div>
-      Enter Join Code
-      <input type="number" onChange={e => setEnterCode(e.target.value)} />
-      <button onClick={clickHandler}>Join</button>
+    <div className="event-join">
+      <div className="event-join-container">
+        <div className="label">Enter Join Code</div>
+        <input className="input-join" type="number" onChange={e => setEnterCode(e.target.value)} />
+        <button className="btn-join btn" onClick={clickHandler}>
+          Join
+        </button>
+      </div>
     </div>
   )
 }

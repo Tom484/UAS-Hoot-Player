@@ -13,10 +13,19 @@ const EventJoinNickname = ({ match, joinEvent, history }) => {
   }
 
   return (
-    <div>
-      Enter Your Nickname
-      <input type="text" onChange={e => setDisplayName(e.target.value)} />
-      <button onClick={clickHandler}>Join</button>
+    <div className="event-join">
+      <div className="event-join-container">
+        <div className="label">Enter your nickname</div>
+        <input
+          className="input-join"
+          type="text"
+          onChange={e => setDisplayName(e.target.value)}
+          maxLength={15}
+        />
+        <button className="btn-join" onClick={clickHandler}>
+          Join
+        </button>
+      </div>
     </div>
   )
 }

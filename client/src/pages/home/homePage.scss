@@ -1,0 +1,49 @@
+.home-page {
+  position: relative;
+  min-height: 100vh;
+  .home-page-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .event-join {
+      .event-join-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: var(--color-background-1);
+        box-shadow: var(--box-shadow-medium);
+        gap: 20px;
+        border-radius: 8px;
+        .label {
+          font-size: 20px;
+        }
+        .input-join {
+          border: none;
+          outline: none;
+          background: var(--color-background-2);
+          padding: 10px 20px;
+          font-size: 24px;
+          width: 400px;
+        }
+        .btn-join {
+          background: var(--color-main-2);
+          outline: none;
+          border: none;
+          color: var(--color-white);
+          width: 100%;
+          padding: 10px;
+          border-radius: 6px;
+          font-size: 20px;
+          &:hover {
+            background: var(--color-main-1);
+          }
+        }
+        padding: 20px;
+      }
+    }
+  }
+}
