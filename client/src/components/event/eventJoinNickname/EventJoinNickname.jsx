@@ -20,7 +20,7 @@ const EventJoinNickname = ({ match, joinEvent, history }) => {
           className="input-join"
           type="text"
           onChange={e => setDisplayName(e.target.value)}
-          maxLength={15}
+          maxLength={20}
         />
         <button className="btn-join" onClick={clickHandler}>
           Join

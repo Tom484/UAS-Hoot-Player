@@ -3,6 +3,7 @@
 @import "./button.scss";
 @import "./icon.scss";
 @import "./colors.scss";
+@import "./scrollbar.scss";
 
 *,
 *::before,
@@ -13,17 +14,35 @@
 }
 
 body {
-  font-family: Poppins, Nunito Lato, sans-serif;
+  font-family: Poppins, Nunito, Lato, sans-serif;
   margin: 0;
   padding: 0;
+  color: var(--color-text-3);
+  background: var(--color-background-1);
 }
 
 .w-100 {
   width: 100%;
 }
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--color-background-2) inset !important;
 }
 
 .cover-fullscreen {
