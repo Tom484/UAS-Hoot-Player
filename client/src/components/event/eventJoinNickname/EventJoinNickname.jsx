@@ -9,6 +9,8 @@ const EventJoinNickname = ({ match, joinEvent, history }) => {
   const [displayName, setDisplayName] = useState("")
 
   const clickHandler = () => {
+    if (displayName.length > 20)
+      return alert("The maximum length of the nickname is 18 characters!!!")
     joinEvent({ displayName, history, enterCode })
   }
 
@@ -20,7 +22,7 @@ const EventJoinNickname = ({ match, joinEvent, history }) => {
           className="input-join"
           type="text"
           onChange={e => setDisplayName(e.target.value)}
-          maxLength={20}
+          maxLength={18}
         />
         <button className="btn-join" onClick={clickHandler}>
           Join
