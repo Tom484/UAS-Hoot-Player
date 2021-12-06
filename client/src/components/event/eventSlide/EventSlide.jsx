@@ -1,18 +1,19 @@
 import React from "react"
 import { connect } from "react-redux"
-import { selectEventDataEvent } from "../../../redux/event/eventSelectors"
+import { selectEventDataEvent, STATUS_TYPES } from "../../../redux/event/eventSelectors"
 import Lobby from "../lobby/Lobby"
-import OverallResults from "../overallResults/OverallResults"
 import SlideGame from "../slideGame/SlideGame"
+import OverallResults from "../overallResults/OverallResults"
 
 const EventSlide = ({ eventDataEvent }) => {
-  const { currentSlide } = eventDataEvent
+  const { status } = eventDataEvent
 
   return (
     <div>
-      {currentSlide?.type === "lobby" && <Lobby />}
-      {currentSlide?.type === "game" && <SlideGame />}
-      {currentSlide?.type === "overallResults" && <OverallResults />}
+      {status === STATUS_TYPES.LOBBY && <Lobby />}
+      {status === STATUS_TYPES.GAME && <SlideGame />}
+      {status === STATUS_TYPES.GAME_RESULTS && <SlideGame />}
+      {status === STATUS_TYPES.OVERALL_RESULTS && <OverallResults />}
     </div>
   )
 }

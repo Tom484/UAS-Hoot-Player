@@ -8,7 +8,7 @@ import { selectEventDataEvent } from "../../../redux/event/eventSelectors"
 import "./slideGame.scss"
 
 const SlideGame = ({ eventDataEvent }) => {
-  const { openVoteAt, closeVoteAt } = eventDataEvent.currentSlide
+  const { openVoteAt, closeVoteAt } = eventDataEvent
 
   const [time, setTime] = useState(Date.now())
   const [timeInterval, setTimeInterval] = useState("")

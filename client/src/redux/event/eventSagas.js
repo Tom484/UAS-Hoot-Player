@@ -32,7 +32,6 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
       yield put(joinEventDeny("Event is closed"))
       return
     }
-
     const playerId = uuid()
 
     const playersRef = yield firestore
@@ -40,7 +39,15 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
       .doc(enterCode)
       .collection("players")
       .doc(playerId)
-    yield playersRef.set({ id: playerId, displayName, joinAt: new Date().getTime() })
+    yield playersRef.set({
+      id: playerId,
+      displayName,
+      joinAt: new Date().getTime(),
+      score: 0,
+      lastScore: 0,
+      lastAnswer: false,
+      lastDataUpdateIndex: -1,
+    })
 
     const data = {
       event: {},

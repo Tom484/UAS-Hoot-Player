@@ -8,6 +8,7 @@ const SlideGamePreview = () => {
     <div className="slide-game-preview">
       <div className="slide-game-preview-container">
         <Loading1 />
+        <p className="label">Read the question and you can vote in a moment...</p>
       </div>
     </div>
   )

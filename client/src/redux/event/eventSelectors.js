@@ -8,3 +8,14 @@ export const selectEventDataEvent = createSelector([selectEventData], data => da
 export const selectEventDataConnect = createSelector([selectEventData], data => data.connect)
 export const selectEventDataProfile = createSelector([selectEventData], data => data.profile)
 export const selectEventDataResults = createSelector([selectEventData], data => data.results)
+
+export const STATUS_TYPES = {
+  LOBBY: "LOBBY",
+  GAME: "GAME",
+  GAME_RESULTS: "GAME_RESULTS",
+  OVERALL_RESULTS: "OVERALL_RESULTS",
+}
+
+export const SLIDE_TYPES = {
+  QUIZ: "quiz",
+}
