@@ -14,12 +14,12 @@ const SlideGame = ({ eventDataEvent }) => {
   const [timeInterval, setTimeInterval] = useState("")
 
   useEffect(() => {
-    setTimeInterval(setInterval(() => setTime(Date.now()), 10))
+    setTimeInterval(setInterval(() => setTime(Date.now()), 20))
     return () => {
       clearInterval(timeInterval)
     }
     // eslint-disable-next-line
-  }, [])
+  }, [eventDataEvent])
 
   if (new Date().getTime() > closeVoteAt) {
     clearInterval(timeInterval)

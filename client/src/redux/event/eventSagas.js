@@ -46,7 +46,7 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
       score: 0,
       lastScore: 0,
       lastAnswer: false,
-      lastDataUpdateIndex: -1,
+      lastDataUpdateSlideIndex: -1,
     })
 
     const data = {
