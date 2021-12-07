@@ -5,8 +5,6 @@ import { selectEventDataProfile, selectEventDataResults } from "../../../redux/e
 import "./eventNavbar.scss"
 
 const EventNavbar = ({ eventDataResults, eventDataProfile }) => {
-  console.log(eventDataResults)
-  console.log(eventDataProfile)
   return (
     <div className="event-navbar">
       <div className="event-navbar-container">

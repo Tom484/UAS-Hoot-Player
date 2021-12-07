@@ -9,7 +9,7 @@ import "./slideGameResults.scss"
 const SlideGameResults = ({ eventDataResults, eventData }) => {
   console.log(eventData, eventDataResults)
 
-  if (eventData.slideIndex !== eventDataResults.lastDataUpdateSlideIndex) {
+  if (eventData?.slideIndex !== eventDataResults?.lastDataUpdateSlideIndex) {
     return (
       <div className="slide-game-results">
         <div className="slide-game-results-container">
