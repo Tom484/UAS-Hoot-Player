@@ -39,6 +39,7 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
       .doc(eventDataProfile.id)
       .onSnapshot(snapshot => {
         const data = snapshot.data()
+        console.log(data)
         updateResultsEvent(data)
       })
     // eslint-disable-next-line

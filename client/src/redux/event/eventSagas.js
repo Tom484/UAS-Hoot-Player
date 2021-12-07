@@ -47,6 +47,7 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
       lastScore: 0,
       lastAnswer: false,
       lastDataUpdateSlideIndex: -1,
+      consecutiveCorrectAnswers: 0,
     })
 
     const data = {

@@ -43,20 +43,20 @@
       }
       &.vote-3 {
         .icon-vote {
-          fill: rgb(255, 23, 224);
-        }
-        background: rgba(255, 23, 224, 0.12);
-        &:hover {
-          background: rgba(255, 23, 224, 0.2);
-        }
-      }
-      &.vote-4 {
-        .icon-vote {
           fill: rgb(255, 15, 95);
         }
         background: rgba(255, 15, 95, 0.12);
         &:hover {
           background: rgba(255, 15, 95, 0.2);
+        }
+      }
+      &.vote-4 {
+        .icon-vote {
+          fill: rgb(255, 23, 224);
+        }
+        background: rgba(255, 23, 224, 0.12);
+        &:hover {
+          background: rgba(255, 23, 224, 0.2);
         }
       }
     }
