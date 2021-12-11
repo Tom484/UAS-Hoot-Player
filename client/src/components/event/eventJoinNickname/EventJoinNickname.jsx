@@ -11,6 +11,8 @@ const EventJoinNickname = ({ match, joinEvent, history }) => {
   const clickHandler = () => {
     if (displayName.length > 20)
       return alert("The maximum length of the nickname is 18 characters!!!")
+    if (displayName.length < 3)
+      return alert("The minimal length of the nickname is 3 characters!!!")
     joinEvent({ displayName, history, enterCode })
   }
 

@@ -1,6 +1,8 @@
 @import "../../../styles/colors.scss";
 
 .slide-game-results {
+  position: relative;
+  min-height: calc(100vh - 50px);
   .slide-game-results-container {
     min-height: calc(100vh - 50px);
     display: flex;
@@ -18,16 +20,27 @@
       border-radius: 50%;
       padding: 30px;
       fill: var(--color-main-2);
+      @media (max-width: 500px) {
+        width: 60vw;
+        height: 60vw;
+      }
     }
-    .gain-score {
+    .text-container {
       background: var(--color-main-2);
       color: white;
-      text-align: center;
-      font-size: 50px;
-      font-weight: 600;
-      border-radius: 10px;
       padding: 15px;
-      width: 250px;
+      width: 320px;
+      border-radius: 8px;
+      @media (max-width: 500px) {
+        width: 90vw;
+      }
+      text-align: center;
+      .gain-score {
+        font-size: 50px;
+        font-weight: 600;
+        border-radius: 10px;
+        font-size: 40px;
+      }
     }
   }
 }

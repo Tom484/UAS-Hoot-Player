@@ -15,7 +15,7 @@ const SlideGameVote = ({ voteEvent }) => {
   }
 
   if (voted) {
-    return <Loading label="Wait a moment for the other players ..." />
+    return <Loading label="Wait a moment for the other players." />
   }
 
   return (

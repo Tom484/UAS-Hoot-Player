@@ -7,7 +7,7 @@ const Lobby = () => {
   return (
     <div className="lobby">
       <div className="lobby-container">
-        <Loading label="Wait for the event to start..." />
+        <Loading label="Wait for the event to start." />
       </div>
     </div>
   )
