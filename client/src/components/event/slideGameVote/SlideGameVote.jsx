@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import { ICONCloudBold, ICONDropBold, ICONFlashBold, ICONMoonBold } from "../../../icons/Icons"
 import { voteEventStart } from "../../../redux/event/eventActions"
-import Loading1 from "../../animation/loading1/Loading1"
+import Loading from "../../components/loading/Loading"
 
 import "./slideGameVote.scss"
 
@@ -15,11 +15,7 @@ const SlideGameVote = ({ voteEvent }) => {
   }
 
   if (voted) {
-    return (
-      <div className="cover-fullscreen ">
-        <Loading1 />
-      </div>
-    )
+    return <Loading label="Wait a moment for the other players ..." />
   }
 
   return (

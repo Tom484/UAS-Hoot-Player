@@ -1,5 +1,5 @@
 import React from "react"
-import Loading1 from "../../animation/loading1/Loading1"
+import Loading from "../../components/loading/Loading"
 
 import "./lobby.scss"
 
@@ -7,8 +7,7 @@ const Lobby = () => {
   return (
     <div className="lobby">
       <div className="lobby-container">
-        <Loading1 />
-        <p className="label">Wait for the event to start...</p>
+        <Loading label="Wait for the event to start..." />
       </div>
     </div>
   )

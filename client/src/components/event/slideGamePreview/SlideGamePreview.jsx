@@ -1,5 +1,5 @@
 import React from "react"
-import Loading1 from "../../animation/loading1/Loading1"
+import Loading from "../../components/loading/Loading"
 
 import "./slideGamePreview.scss"
 
@@ -7,8 +7,7 @@ const SlideGamePreview = () => {
   return (
     <div className="slide-game-preview">
       <div className="slide-game-preview-container">
-        <Loading1 />
-        <p className="label">Read the question and you can vote in a moment...</p>
+        <Loading label="Read the question and you can vote in a moment.." />
       </div>
     </div>
   )
