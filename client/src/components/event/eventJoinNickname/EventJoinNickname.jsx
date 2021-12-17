@@ -25,6 +25,7 @@ const EventJoinNickname = ({ match, joinEvent, history }) => {
           type="text"
           onChange={e => setDisplayName(e.target.value)}
           maxLength={18}
+          autoFocus
         />
         <button className="btn-join" onClick={clickHandler}>
           Join

@@ -1,30 +1,20 @@
 import React from "react"
-import { withRouter } from "react-router-dom"
-import BubbleBackground from "../../components/components/bubbleBackground/BubbleBackground"
-import EventJoinEventId from "../../components/event/eventJoinEnterCode/EventJoinEnterCode"
-import EventJoinNickname from "../../components/event/eventJoinNickname/EventJoinNickname"
+import JoinCard from "../../components/components/joinCard/JoinCard"
 import LineBackground from "../../components/components/lineBackground/LineBackground"
-import { ICONLogoOutline } from "../../icons/Icons"
 
 import "./homePage.scss"
+import BubbleBackground from "../../components/components/bubbleBackground/BubbleBackground"
 
-const HomePage = ({ match }) => {
-  const { enterCode } = match.params
+const HomePage = () => {
   return (
     <div className="home-page">
       <LineBackground />
       <BubbleBackground />
       <div className="home-page-container">
-        <div className="title-container">
-          <ICONLogoOutline className="app-icon" />
-          <div className="name">
-            UAS <span className="fw-600">Hoot</span>
-          </div>
-        </div>
-        {enterCode ? <EventJoinNickname /> : <EventJoinEventId />}
+        <JoinCard />
       </div>
     </div>
   )
 }
 
-export default withRouter(HomePage)
+export default HomePage

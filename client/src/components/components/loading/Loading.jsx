@@ -1,5 +1,5 @@
 import React from "react"
-import Loading1 from "../../animation/loading1/Loading1"
+import SquareAnimation from "../../animation/squareAnimation/SquareAnimation"
 import BubbleBackground from "../bubbleBackground/BubbleBackground"
 import LineBackground from "../lineBackground/LineBackground"
 
@@ -10,7 +10,7 @@ const Loading = ({ label }) => {
     <div className="loading-component">
       <LineBackground />
       <BubbleBackground />
-      <Loading1 />
+      <SquareAnimation />
       <p className="loading-label">{label}</p>
     </div>
   )

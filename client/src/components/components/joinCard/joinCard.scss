@@ -1,0 +1,95 @@
+.join-card {
+  .join-card-container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--color-background-1);
+    box-shadow: var(--box-shadow-medium), var(--box-shadow-medium);
+
+    .picture {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      border-radius: 16px;
+      margin: 15px;
+      @media (max-width: 820px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 820px) {
+      border-radius: 14px;
+    }
+    @media (max-width: 820px) {
+      border-radius: 10px;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 8px;
+      padding: 40px;
+      gap: 25px;
+      @media (max-width: 820px) {
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .name {
+        font-size: 36px;
+        padding-bottom: 20px;
+      }
+      .event-join {
+        .event-join-container {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          .label {
+            font-size: 14px;
+          }
+          .input-join {
+            width: 300px;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            background: var(--color-background-2);
+            color: var(--color-text-3);
+            border: 1px solid transparent;
+            &:focus {
+              border: 1px solid var(--color-background-3);
+            }
+          }
+          .btn-join {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            background: var(--color-main-2);
+            color: var(--color-white);
+            transition: box-shadow 0.3s;
+            &:hover {
+              box-shadow: var(--box-shadow-medium), var(--box-shadow-medium);
+            }
+          }
+        }
+      }
+      .information {
+        width: 300px;
+        font-size: 12px;
+        color: var(--color-text-7);
+      }
+    }
+  }
+}

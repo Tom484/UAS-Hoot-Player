@@ -1,8 +1,8 @@
 import React from "react"
 
-import "./loading1.scss"
+import "./squareAnimation.scss"
 
-const Loading1 = () => {
+const SquareAnimation = () => {
   return (
     <div>
       <div class="lds-grid">
@@ -20,4 +20,4 @@ const Loading1 = () => {
   )
 }
 
-export default Loading1
+export default SquareAnimation

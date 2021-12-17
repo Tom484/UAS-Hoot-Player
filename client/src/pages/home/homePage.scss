@@ -1,7 +1,14 @@
 .home-page {
   position: relative;
-  min-height: 80vh;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
   .home-page-container {
     min-height: 100vh;
     width: 100%;
@@ -10,72 +17,7 @@
     justify-content: center;
     flex-direction: column;
     font-size: 18px;
-    .title-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8em;
-      gap: 15px;
-      color: var(--color-text-2);
-      background: var(--color-background-1);
-      border-radius: 0.4em;
-      padding: 0.5em 0.5em;
-      margin-bottom: 40px;
-      .app-icon {
-        width: 2em;
-        height: 2em;
-      }
-      @media (max-width: 500px) {
-        font-size: 10vw;
-      }
-    }
-    .event-join {
-      .event-join-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background: var(--color-background-1);
-        box-shadow: var(--box-shadow-medium);
-        gap: 20px;
-        border-radius: 8px;
-        .label {
-          font-size: 22px;
-          color: var(--color-text-3);
-        }
-        width: 450px;
-        @media (max-width: 500px) {
-          width: calc(100vw - 30px);
-        }
-        .input-join {
-          border: none;
-          outline: none;
-          background: var(--color-background-2);
-          padding: 10px 20px;
-          font-size: 24px;
-          border-radius: 6px;
-          width: 100%;
-        }
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-        .btn-join {
-          background: var(--color-main-3);
-          outline: none;
-          border: none;
-          color: var(--color-white);
-          width: 100%;
-          padding: 10px;
-          border-radius: 6px;
-          font-size: 20px;
-          &:hover {
-            background: var(--color-main-2);
-          }
-        }
-        padding: 20px;
-      }
-    }
+    position: relative;
+    z-index: 10;
   }
 }
