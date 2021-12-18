@@ -14,6 +14,7 @@ import {
   voteEventSuccess,
 } from "./eventActions"
 import { selectEventDataConnect, selectEventDataProfile } from "./eventSelectors"
+import { createNotification } from "../notifications/notificationsActions"
 
 export function* joinEventAsync({ payload: { displayName, enterCode, history } }) {
   try {
@@ -27,9 +28,23 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
 
     if (!connect) {
       yield put(joinEventDeny("Event was not found"))
+      yield put(
+        createNotification({
+          title: "Event not found",
+          message: "You may enter wrong event code. Please try again.",
+          type: "warning",
+        })
+      )
       return
     } else if (!connect.isOpen) {
       yield put(joinEventDeny("Event is closed"))
+      yield put(
+        createNotification({
+          title: "Event was closed",
+          message: "This event was closed, please ask admin to open event.",
+          type: "warning",
+        })
+      )
       return
     }
     const playerId = uuid()
@@ -78,6 +93,13 @@ function* existEventAsync({ payload: { enterCode, history } }) {
     const event = yield snapshot.data()
     if (!event) {
       yield put(existEventNotExist("This event do not exist."))
+      yield put(
+        createNotification({
+          title: "Event not found",
+          message: "You may enter wrong event code. Please try again.",
+          type: "warning",
+        })
+      )
     } else {
       yield put(existEventSuccess())
       history.push(`/join/${enterCode}`)

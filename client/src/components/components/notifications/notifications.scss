@@ -1,0 +1,76 @@
+.notifications {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 15px;
+  width: 400px;
+  z-index: 100000;
+
+  .notifications-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    width: 100%;
+    .notification {
+      width: 100%;
+      .notification-container {
+        border-radius: 8px;
+        background: rgb(255, 255, 255);
+        padding: 20px 20px;
+        width: 100%;
+        box-shadow: var(--box-shadow-medium);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        .notification-icon {
+          width: 25px;
+          height: 25px;
+        }
+        .title {
+          font-size: 18px;
+          font-weight: 600;
+        }
+        .content {
+          color: var(--color-text-6);
+          font-size: 14px;
+        }
+        .cancel {
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          height: 24px;
+          width: 24px;
+          fill: var(--color-text-4);
+          padding: 3px;
+          border-radius: 4px;
+          background: var(--color-background-2);
+          cursor: pointer;
+        }
+        .type {
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          top: 0;
+          width: 5px;
+          background: var(--color-background-2);
+          &.warning {
+            background: rgb(255, 51, 0);
+          }
+          &.success {
+            background: var(--color-main-2);
+          }
+          &.error {
+            background: red;
+          }
+          &.information {
+            background: var(--color-main-2);
+          }
+        }
+      }
+    }
+  }
+}

@@ -65,3 +65,11 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+::-moz-selection {
+  background: rgba(113, 115, 121, 0.39);
+}
+
+::selection {
+  background: rgba(113, 115, 121, 0.39);
+}

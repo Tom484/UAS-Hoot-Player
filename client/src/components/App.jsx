@@ -7,6 +7,7 @@ import HomePage from "../pages/home/HomePage"
 import NotFoundPage from "../pages/notFound/NotFoundPage"
 import { updateDataEvent, updateResultsEvent } from "../redux/event/eventActions"
 import { selectEventDataConnect, selectEventDataProfile } from "../redux/event/eventSelectors"
+import Notifications from "./components/notifications/Notifications"
 
 const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResultsEvent }) => {
   const { enterCode } = eventDataConnect || ""
@@ -45,7 +46,8 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
   }, [eventDataProfile, eventDataConnect])
 
   return (
-    <div>
+    <div className="app">
+      <Notifications />
       <Switch>
         <Route exact path="/event" component={EventPage} />
         <Route exact path="/" component={HomePage} />
