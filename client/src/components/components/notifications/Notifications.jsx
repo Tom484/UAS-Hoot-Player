@@ -12,6 +12,7 @@ const Notifications = ({ notifications, deleteNotification }) => {
       checkNotificationsDeleteTime()
     }, 1000)
     return () => clearInterval(interval)
+    // eslint-disable-next-line
   }, [notifications])
 
   const checkNotificationsDeleteTime = () => {
