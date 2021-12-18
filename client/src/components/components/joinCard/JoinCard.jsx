@@ -24,6 +24,10 @@ const JoinCard = ({ match }) => {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero autem, voluptate iusto
             repellendus itaque porro dicta.
           </div>
+          <div className="progress-bar">
+            <div className="bar active"></div>
+            <div className={`bar ${enterCode ? "active" : ""}`}></div>
+          </div>
         </div>
       </div>
     </div>
