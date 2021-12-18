@@ -9,6 +9,7 @@ import { updateDataEvent, updateResultsEvent } from "../redux/event/eventActions
 import { selectEventDataConnect, selectEventDataProfile } from "../redux/event/eventSelectors"
 import LoadingAnimation from "./components/loadingAnimation/LoadingAnimation"
 import Notifications from "./components/notifications/Notifications"
+import SlideGameResults from "./event/slideGameResults/SlideGameResults"
 
 const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResultsEvent }) => {
   const { enterCode } = eventDataConnect || ""

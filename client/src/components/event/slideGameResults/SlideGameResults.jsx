@@ -24,7 +24,7 @@ const SlideGameResults = ({ eventDataResults, eventData }) => {
           <ICONCloseSquareBold className="result-icon" />
         )}
         <div className="text-container">
-          <div className="gain-score">+ {eventDataResults?.lastScore}</div>
+          <div className="gain-score">+ {eventDataResults?.lastScore || "000"}</div>
           <div className="position-score">
             You are currently on {eventDataResults?.order || "x"} position.
           </div>
