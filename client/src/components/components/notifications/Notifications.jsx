@@ -1,85 +1,43 @@
-import React, { useEffect, useState } from "react"
-import uuid from "react-uuid"
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
 import { ICONTrashOutline } from "../../../icons/Icons"
+import { deleteNotification } from "../../../redux/notifications/notificationsActions"
+import { selectNotifications } from "../../../redux/notifications/notificationsSelectors"
 
 import "./notifications.scss"
 
-export const NotificationTypes = {
-  WARNING: "warning",
-  INFORMATION: "information",
-  SUCCESS: "success",
-  Error: "error",
-}
-
-const Notifications = () => {
-  const [notificationsArray, setNotificationsArray] = useState([
-    {
-      title: "Nickname length",
-      content: "The minimal length of the nickname is 3 characters!!!",
-      type: NotificationTypes.WARNING,
-      deleteTime: new Date().getTime() + 3000,
-      id: uuid(),
-    },
-    {
-      title: "Name length",
-      content: "Lorem ipsum dolor sit amet.",
-      type: NotificationTypes.INFORMATION,
-      deleteTime: new Date().getTime() + 5000,
-      id: uuid(),
-    },
-  ])
-
+const Notifications = ({ notifications, deleteNotification }) => {
   useEffect(() => {
     const interval = setInterval(() => {
-      checkNotificationsDeleteTime(setNotificationsArray)
+      checkNotificationsDeleteTime()
     }, 1000)
     return () => clearInterval(interval)
-  }, [notificationsArray])
+  }, [notifications])
 
-  const deleteNotification = id => {
-    setNotificationsArray(notifications =>
-      notifications.filter(notification => notification.id !== id)
-    )
+  const checkNotificationsDeleteTime = () => {
+    // notifications.forEach(notification => {
+    //   if (notification.deleteTime < new Date().getTime()) {
+    //     deleteNotification(notification.id)
+    //   }
+    // })
   }
-
-  const checkNotificationsDeleteTime = setNotificationsArray => {
-    setNotificationsArray(notifications =>
-      notifications.filter(notification => notification.deleteTime > new Date().getTime())
-    )
-  }
-
-  const addNewNotification = ({ title, content, type }) => {
-    const newNotification = {
-      title,
-      content,
-      type,
-      deleteTime: new Date().getTime() + 10000,
-      id: uuid(),
-    }
-    setNotificationsArray(notifications => [...notifications, newNotification])
-  }
-
-  useEffect(() => {
-    addNewNotification({
-      title: "New Notification",
-      content: "ahoj what is your name",
-      type: "information",
-    })
-  }, [])
 
   return (
     <div className="notifications">
       <div className="notifications-container">
-        {notificationsArray.map(notification => (
+        {notifications.map(notification => (
           <div className="notification" key={notification.id}>
             <div className="notification-container">
               <div className="title">{notification.title}</div>
-              <div className="content">{notification.content}</div>
+              <div className="message">{notification.message}</div>
               <ICONTrashOutline
                 className="cancel"
                 onClick={() => deleteNotification(notification.id)}
               />
               <div className={"type " + notification.type}></div>
+              <div className="btn-cancel" onClick={() => deleteNotification(notification.id)}>
+                OK
+              </div>
             </div>
           </div>
         ))}
@@ -88,4 +46,12 @@ const Notifications = () => {
   )
 }
 
-export default Notifications
+const mapStateToProps = state => ({
+  notifications: selectNotifications(state),
+})
+
+const mapDispatchToProps = dispatch => ({
+  deleteNotification: id => dispatch(deleteNotification(id)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notifications)

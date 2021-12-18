@@ -1,5 +1,13 @@
+import uuid from "react-uuid"
+
 export const createNotificationUtils = (state, newNotification) => {
-  return [...state.notifications, newNotification]
+  let previousNotification = state.notifications
+  if (previousNotification.length > 1) previousNotification.shift()
+
+  return [
+    ...previousNotification,
+    { ...newNotification, deleteTime: new Date().getTime() + 7000, id: uuid() },
+  ]
 }
 
 export const deleteNotificationUtils = (state, id) => {

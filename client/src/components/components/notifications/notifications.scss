@@ -3,8 +3,10 @@
   right: 0px;
   top: 0px;
   padding: 15px;
-  width: 400px;
   z-index: 100000;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 
   .notifications-container {
     display: flex;
@@ -12,13 +14,19 @@
     flex-direction: column;
     gap: 15px;
     font-size: 14px;
-    width: 100%;
+    width: 350px;
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
     .notification {
       width: 100%;
       .notification-container {
         border-radius: 8px;
-        background: rgb(255, 255, 255);
-        padding: 20px 20px;
+        background: var(--color-background-1);
+        padding: 20px;
+        @media screen and (max-width: 600px) {
+          padding: 15px;
+        }
         width: 100%;
         box-shadow: var(--box-shadow-medium);
         display: flex;
@@ -34,9 +42,9 @@
           font-size: 18px;
           font-weight: 600;
         }
-        .content {
+        .message {
           color: var(--color-text-6);
-          font-size: 14px;
+          font-size: 13px;
         }
         .cancel {
           position: absolute;
@@ -49,6 +57,22 @@
           border-radius: 4px;
           background: var(--color-background-2);
           cursor: pointer;
+          @media screen and (max-width: 600px) {
+            display: none;
+          }
+        }
+        .btn-cancel {
+          display: none;
+          width: 100%;
+          padding: 10px;
+          border-radius: 8px;
+          font-weight: 600;
+          background: var(--color-background-2);
+          text-align: center;
+          cursor: pointer;
+          @media screen and (max-width: 600px) {
+            display: block;
+          }
         }
         .type {
           position: absolute;
@@ -58,7 +82,7 @@
           width: 5px;
           background: var(--color-background-2);
           &.warning {
-            background: rgb(255, 51, 0);
+            background: red;
           }
           &.success {
             background: var(--color-main-2);
