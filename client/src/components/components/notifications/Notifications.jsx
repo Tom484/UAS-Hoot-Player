@@ -15,11 +15,11 @@ const Notifications = ({ notifications, deleteNotification }) => {
   }, [notifications])
 
   const checkNotificationsDeleteTime = () => {
-    // notifications.forEach(notification => {
-    //   if (notification.deleteTime < new Date().getTime()) {
-    //     deleteNotification(notification.id)
-    //   }
-    // })
+    notifications.forEach(notification => {
+      if (notification.deleteTime < new Date().getTime()) {
+        deleteNotification(notification.id)
+      }
+    })
   }
 
   return (

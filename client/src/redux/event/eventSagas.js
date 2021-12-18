@@ -28,6 +28,7 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
 
     if (!connect) {
       yield put(joinEventDeny("Event was not found"))
+
       yield put(
         createNotification({
           title: "Event not found",

@@ -26,6 +26,7 @@
         padding: 20px;
         @media screen and (max-width: 600px) {
           padding: 15px;
+          gap: 10px;
         }
         width: 100%;
         box-shadow: var(--box-shadow-medium);
@@ -39,7 +40,7 @@
           height: 25px;
         }
         .title {
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 600;
         }
         .message {
@@ -75,6 +76,9 @@
           }
         }
         .type {
+          @media screen and (max-width: 600px) {
+            display: none;
+          }
           position: absolute;
           bottom: 0px;
           right: 0px;
