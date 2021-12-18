@@ -8,8 +8,8 @@ const EventNavbar = ({ eventDataResults, eventDataProfile }) => {
   return (
     <div className="event-navbar">
       <div className="event-navbar-container">
-        <span className="name">{eventDataProfile?.displayName}</span>
-        <span className="score">{eventDataResults?.score | 0}</span>
+        <span className="score box">Score: {eventDataResults?.score | 0}</span>
+        <span className="name box">{eventDataProfile?.displayName}</span>
       </div>
     </div>
   )

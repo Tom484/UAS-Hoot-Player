@@ -2,6 +2,7 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import EventJoinNickname from "../../event/eventJoinNickname/EventJoinNickname"
 import EventJoinEnterCode from "../../event/eventJoinEnterCode/EventJoinEnterCode"
+import img from "../../../img/connect-page-background.svg"
 
 import "./joinCard.scss"
 
@@ -11,10 +12,7 @@ const JoinCard = ({ match }) => {
   return (
     <div className="join-card">
       <div className="join-card-container">
-        <div
-          className="picture"
-          style={{ backgroundImage: `url("./img/connect-page-background.svg")` }}
-        ></div>
+        <div className="picture" style={{ backgroundImage: `url(${img})` }}></div>
         <div className="content">
           <div className="name">
             UAS <span className="fw-600">Hoot</span>

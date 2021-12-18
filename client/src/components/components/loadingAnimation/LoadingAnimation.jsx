@@ -6,8 +6,6 @@ import RollerAnimation from "../../animation/rollerAnimation/RollerAnimation"
 import "./loadingAnimation.scss"
 
 const LoadingAnimation = ({ isEventLoading }) => {
-  console.log(isEventLoading)
-
   if (!isEventLoading) return <></>
 
   return (
@@ -15,7 +13,7 @@ const LoadingAnimation = ({ isEventLoading }) => {
       <div className="loading-animation-container">
         <div className="loading-card">
           <RollerAnimation />
-          <div className="">Please wait</div>
+          <div className="label">Please wait</div>
         </div>
       </div>
     </div>
