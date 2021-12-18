@@ -21,4 +21,14 @@ export const NOTIFICATIONS = {
     message: "This event has been closed, please ask your administrator to open the event.",
     type: NOTIFICATION_TYPES.WARNING,
   },
+  LONG_NICKNAME: {
+    title: "Name length",
+    message: "The maximum length of the nickname is 18 characters!!!",
+    type: NOTIFICATION_TYPES.WARNING,
+  },
+  SHORT_NICKNAME: {
+    title: "Name length",
+    message: "The minimal length of the nickname is 3 characters!!!",
+    type: NOTIFICATION_TYPES.WARNING,
+  },
 }

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import { ICONTrashOutline } from "../../../icons/Icons"
 import { deleteNotification } from "../../../redux/notifications/notificationsActions"
 import { selectNotifications } from "../../../redux/notifications/notificationsSelectors"
+import Notification from "../notification/Notification"
 
 import "./notifications.scss"
 
@@ -27,20 +27,7 @@ const Notifications = ({ notifications, deleteNotification }) => {
     <div className="notifications">
       <div className="notifications-container">
         {notifications.map(notification => (
-          <div className="notification" key={notification.id}>
-            <div className="notification-container">
-              <div className="title">{notification.title}</div>
-              <div className="message">{notification.message}</div>
-              <ICONTrashOutline
-                className="cancel"
-                onClick={() => deleteNotification(notification.id)}
-              />
-              <div className={"type " + notification.type}></div>
-              <div className="btn-cancel" onClick={() => deleteNotification(notification.id)}>
-                OK
-              </div>
-            </div>
-          </div>
+          <Notification notification={notification} />
         ))}
       </div>
     </div>

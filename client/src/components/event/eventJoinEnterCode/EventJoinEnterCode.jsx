@@ -16,12 +16,12 @@ const EventJoinEventId = ({ existEvent, history }) => {
       <div className="event-join-container">
         <div className="label">Enter Join Code</div>
         <input
-          className="input-join"
+          className="input-custom input"
           type="number"
           autoFocus
           onChange={e => setEnterCode(e.target.value)}
         />
-        <button className="btn-join btn" onClick={clickHandler}>
+        <button className="btn-custom btn" onClick={clickHandler}>
           Join
         </button>
       </div>
