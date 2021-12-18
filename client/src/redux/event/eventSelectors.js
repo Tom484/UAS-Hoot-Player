@@ -3,6 +3,7 @@ import { createSelector } from "reselect"
 const selectEvent = state => state.event
 
 export const selectEventData = createSelector([selectEvent], event => event.data)
+export const selectIsEventLoading = createSelector([selectEvent], event => event.isLoading)
 
 export const selectEventDataEvent = createSelector([selectEventData], data => data.event)
 export const selectEventDataConnect = createSelector([selectEventData], data => data.connect)
