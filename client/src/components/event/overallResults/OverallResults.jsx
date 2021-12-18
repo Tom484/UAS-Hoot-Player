@@ -23,7 +23,7 @@ const OverallResults = ({ eventDataResults, history }) => {
               because you may not be on top tomorrow.
             </div>
             <button className="btn btn-end" onClick={() => history.push("")}>
-              Ok
+              OK
             </button>
           </div>
         </div>

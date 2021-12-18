@@ -13,13 +13,16 @@
       .results-card-container {
         background: var(--color-background-1);
         box-shadow: var(--box-shadow-medium);
-        border-radius: 8px;
+        border-radius: 20px;
         padding: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 20px;
+        @media (max-width: 500px) {
+          border-radius: 12px;
+        }
         .result-icon {
           width: 200px;
           fill: var(--color-main-2);
@@ -34,23 +37,29 @@
           }
         }
         .quote {
-          color: var(--color-text-4);
+          color: var(--color-text-6);
           font-size: 16px;
           text-align: center;
           @media (max-width: 500px) {
             font-size: 14px;
           }
+          background: var(--color-background-2);
+          padding: 12px;
+          border-radius: 12px;
         }
         .btn-end {
           background: var(--color-main-2);
           border: none;
           width: 100%;
-          border-radius: 8px;
+          border-radius: 12px;
           font-size: 24px;
           padding: 10px;
-          color: white;
+          font-weight: 700;
+          letter-spacing: 1px;
+          color: var(--color-white);
+          transition: box-shadow 0.3s;
           &:hover {
-            background: var(--color-main-1);
+            box-shadow: var(--box-shadow-medium), var(--box-shadow-medium);
           }
         }
       }

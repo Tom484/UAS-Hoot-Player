@@ -5,7 +5,6 @@ import uuid from "react-uuid"
 import EventActions from "./eventTypes"
 import {
   existEventFailure,
-  existEventNotExist,
   existEventSuccess,
   joinEventDeny,
   joinEventFailure,
@@ -15,68 +14,20 @@ import {
 } from "./eventActions"
 import { selectEventDataConnect, selectEventDataProfile } from "./eventSelectors"
 import { createNotification } from "../notifications/notificationsActions"
+import { NOTIFICATIONS } from "../notifications/notificationsTypes"
+import { eventDataSkeleton, eventPlayerSkeleton } from "./eventDataSkeleton"
 
 export function* joinEventAsync({ payload: { displayName, enterCode, history } }) {
   try {
-    const connectRef = yield firestore
-      .collection(`events`)
-      .doc(enterCode)
-      .collection("data")
-      .doc("connect")
-    const snapshot = yield connectRef.get()
-    const connect = yield snapshot.data()
+    const connect = yield eventGetConnectInformation(enterCode)
+    if (!connect) return
 
-    if (!connect) {
-      yield put(joinEventDeny("Event was not found"))
-
-      yield put(
-        createNotification({
-          title: "Event not found",
-          message: "You may enter wrong event code. Please try again.",
-          type: "warning",
-        })
-      )
-      return
-    } else if (!connect.isOpen) {
-      yield put(joinEventDeny("Event is closed"))
-      yield put(
-        createNotification({
-          title: "Event was closed",
-          message: "This event was closed, please ask admin to open event.",
-          type: "warning",
-        })
-      )
-      return
-    }
     const playerId = uuid()
+    const playersRef = yield firestore.doc(`events/${enterCode}/players/${playerId}`)
 
-    const playersRef = yield firestore
-      .collection(`events`)
-      .doc(enterCode)
-      .collection("players")
-      .doc(playerId)
-    yield playersRef.set({
-      id: playerId,
-      displayName,
-      joinAt: new Date().getTime(),
-      score: 0,
-      lastScore: 0,
-      lastAnswer: false,
-      lastDataUpdateSlideIndex: -1,
-      consecutiveCorrectAnswers: 0,
-    })
+    yield playersRef.set(eventPlayerSkeleton({ displayName, playerId }))
+    yield put(joinEventSuccess(eventDataSkeleton({ displayName, playerId, enterCode })))
 
-    const data = {
-      event: {},
-      connect: {
-        enterCode: enterCode,
-      },
-      profile: {
-        id: playerId,
-        displayName,
-      },
-    }
-    yield put(joinEventSuccess(data))
     yield history.push("/event")
   } catch (error) {
     yield put(joinEventFailure(error.message))
@@ -85,26 +36,11 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
 
 function* existEventAsync({ payload: { enterCode, history } }) {
   try {
-    const connectRef = yield firestore
-      .collection(`events`)
-      .doc(enterCode)
-      .collection("data")
-      .doc("connect")
-    const snapshot = yield connectRef.get()
-    const event = yield snapshot.data()
-    if (!event) {
-      yield put(existEventNotExist("This event do not exist."))
-      yield put(
-        createNotification({
-          title: "Event not found",
-          message: "You may enter wrong event code. Please try again.",
-          type: "warning",
-        })
-      )
-    } else {
-      yield put(existEventSuccess())
-      history.push(`/join/${enterCode}`)
-    }
+    const connect = yield eventGetConnectInformation(enterCode)
+    if (!connect) return
+
+    yield put(existEventSuccess())
+    history.push(`/join/${enterCode}`)
   } catch (error) {
     yield put(existEventFailure(error.message))
   }
@@ -113,19 +49,31 @@ function* existEventAsync({ payload: { enterCode, history } }) {
 function* voteEventAsync({ payload: { option, submitTime } }) {
   try {
     const profile = yield select(selectEventDataProfile)
-    const connect = yield select(selectEventDataConnect)
+    const { enterCode } = yield select(selectEventDataConnect)
 
-    const connectRef = yield firestore
-      .collection(`events`)
-      .doc(connect.enterCode)
-      .collection("answers")
-      .doc(profile.id)
+    const connectRef = yield firestore.doc(`events/${enterCode}/answers/${profile.id}`)
     yield connectRef.set({ option, submitTime, id: profile.id })
 
     yield put(voteEventSuccess())
   } catch (error) {
     yield put(voteEventFailure(error.message))
   }
+}
+
+function* eventGetConnectInformation(enterCode) {
+  const connectRef = yield firestore.doc(`events/${enterCode}/data/connect`)
+  const snapshot = yield connectRef.get()
+  const connect = yield snapshot.data()
+  if (!connect) {
+    yield put(joinEventDeny("The event does not exist"))
+    yield put(createNotification(NOTIFICATIONS.EVENT_NOT_EXIST))
+    return false
+  } else if (!connect.isOpen) {
+    yield put(joinEventDeny("Event is closed"))
+    yield put(createNotification(NOTIFICATIONS.EVENT_IS_CLOSED))
+    return false
+  }
+  return connect
 }
 
 export function* joinEventStart() {

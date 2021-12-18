@@ -19,6 +19,7 @@
       background-size: cover;
       border-radius: 16px;
       margin: 15px;
+      background-image: var(--color-background-2);
       @media (max-width: 820px) {
         display: none;
       }

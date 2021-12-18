@@ -2,7 +2,7 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import EventJoinNickname from "../../event/eventJoinNickname/EventJoinNickname"
 import EventJoinEnterCode from "../../event/eventJoinEnterCode/EventJoinEnterCode"
-import img from "../../../img/connect-page-background.svg"
+import img from "../../../img/img-1.svg"
 
 import "./joinCard.scss"
 

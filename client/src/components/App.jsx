@@ -15,34 +15,20 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
   const [previousEnterCode, setPreviousEnterCode] = useState("")
 
   useEffect(() => {
-    if (!enterCode) return
-    if (enterCode === previousEnterCode) return
+    if (!enterCode || enterCode === previousEnterCode) return
     setPreviousEnterCode(enterCode)
-    firestore
-      .collection(`events`)
-      .doc(enterCode)
-      .collection("data")
-      .doc("event")
-      .onSnapshot(snapshot => {
-        const data = snapshot.data()
-        updateDataEvent(data)
-      })
+    firestore.doc(`events/${enterCode}/data/event`).onSnapshot(snapshot => {
+      updateDataEvent(snapshot.data())
+    })
     // eslint-disable-next-line
   }, [eventDataConnect])
 
   useEffect(() => {
-    if (!enterCode) return
-    if (enterCode === previousEnterCode) return
+    if (!enterCode || enterCode === previousEnterCode) return
     setPreviousEnterCode(enterCode)
-    firestore
-      .collection(`events`)
-      .doc(enterCode)
-      .collection("players")
-      .doc(eventDataProfile.id)
-      .onSnapshot(snapshot => {
-        const data = snapshot.data()
-        updateResultsEvent(data)
-      })
+    firestore.doc(`events/${enterCode}/players/${eventDataProfile.id}`).onSnapshot(snapshot => {
+      updateResultsEvent(snapshot.data())
+    })
     // eslint-disable-next-line
   }, [eventDataProfile, eventDataConnect])
 
