@@ -6,28 +6,6 @@ button {
   cursor: pointer;
 }
 
-.btn-basic {
-  color: var(--color-text-2);
-  font-size: 16px;
-  border: none;
-  background: var(--color-background-2);
-  border-radius: 0.25em;
-  padding: 0.4em 1.2em;
-  &:hover {
-    background: var(--color-main-2);
-    color: var(--color-white);
-  }
-  &.active {
-    background: var(--color-main-2);
-    color: var(--color-white);
-  }
-}
-
-.button-100 {
-  padding: 0.6em;
-  width: 100%;
-}
-
 .btn-custom {
   width: 100%;
   font-weight: 700;
@@ -38,6 +16,9 @@ button {
   background: var(--color-main-2);
   color: var(--color-white);
   transition: box-shadow 0.3s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
   &:hover {
     box-shadow: var(--box-shadow-medium), var(--box-shadow-medium);
   }

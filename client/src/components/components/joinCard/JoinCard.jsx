@@ -2,10 +2,10 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import EventJoinNickname from "../../event/eventJoinNickname/EventJoinNickname"
 import EventJoinEnterCode from "../../event/eventJoinEnterCode/EventJoinEnterCode"
-
-import "./joinCard.scss"
 import CustomCard from "../customCard/CustomCard"
 import ProgressBar from "../progressBar/ProgressBar"
+
+import "./joinCard.scss"
 
 const JoinCard = ({ match }) => {
   const { enterCode } = match.params

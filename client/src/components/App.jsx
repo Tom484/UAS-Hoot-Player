@@ -18,7 +18,9 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
     if (!enterCode || enterCode === previousEnterCode) return
     setPreviousEnterCode(enterCode)
     firestore.doc(`events/${enterCode}/data/event`).onSnapshot(snapshot => {
-      updateDataEvent(snapshot.data())
+      const data = snapshot.data()
+      console.log(data)
+      updateDataEvent(data)
     })
     // eslint-disable-next-line
   }, [eventDataConnect])
@@ -27,7 +29,9 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
     if (!enterCode || enterCode === previousEnterCode) return
     setPreviousEnterCode(enterCode)
     firestore.doc(`events/${enterCode}/players/${eventDataProfile.id}`).onSnapshot(snapshot => {
-      updateResultsEvent(snapshot.data())
+      const data = snapshot.data()
+      console.log(data)
+      updateResultsEvent(data)
     })
     // eslint-disable-next-line
   }, [eventDataProfile, eventDataConnect])

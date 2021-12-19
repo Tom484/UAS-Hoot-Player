@@ -1,0 +1,18 @@
+@import "../../../styles/mixins.scss";
+.custom-result-card {
+  padding: 15px;
+  max-width: 500px;
+  width: 100%;
+  .custom-result-card-container {
+    @include flex-center-center-column();
+    background: var(--color-background-1);
+    box-shadow: var(--box-shadow-medium);
+    width: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+    @media (max-width: 500px) {
+      border-radius: 12px;
+    }
+  }
+}

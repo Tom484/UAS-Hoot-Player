@@ -38,6 +38,10 @@ body {
   cursor: pointer;
 }
 
+.text-center {
+  text-align: center;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -60,8 +64,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
@@ -69,7 +71,6 @@ input[type="number"] {
 ::-moz-selection {
   background: rgba(113, 115, 121, 0.39);
 }
-
 ::selection {
   background: rgba(113, 115, 121, 0.39);
 }

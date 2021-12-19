@@ -1,6 +1,42 @@
+.text-large {
+  color: var(--color-text-3);
+  font-size: 36px;
+  width: 100%;
+  font-weight: 600;
+  @media (max-width: 500px) {
+    font-size: 28px;
+  }
+}
+
 .text-information-small {
   color: var(--color-text-7);
   font-size: 12px;
   width: 100%;
   font-weight: 400;
+}
+.text-information-medium {
+  color: var(--color-text-5);
+  font-size: 16px;
+  width: 100%;
+  font-weight: 400;
+}
+
+.text-information-small-background {
+  border-radius: 12px;
+  font-size: 14px;
+  padding: 12px;
+  text-align: center;
+  color: var(--color-text-6);
+  background: var(--color-background-2);
+  width: 100%;
+}
+
+.text-information-medium-background {
+  border-radius: 12px;
+  font-size: 16px;
+  padding: 12px;
+  text-align: center;
+  color: var(--color-text-6);
+  background: var(--color-background-2);
+  width: 100%;
 }
