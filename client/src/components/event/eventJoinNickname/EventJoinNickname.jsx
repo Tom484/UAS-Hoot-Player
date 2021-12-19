@@ -4,6 +4,9 @@ import { withRouter } from "react-router-dom"
 import { joinEventStart } from "../../../redux/event/eventActions"
 import { createNotification } from "../../../redux/notifications/notificationsActions"
 import { NOTIFICATIONS } from "../../../redux/notifications/notificationsTypes"
+import CustomButton from "../../components/customButton/CustomButton"
+import { CustomInput } from "../../components/customInput/CustomInput"
+import { CustomTextSmall } from "../../components/customText/CustomText"
 
 const EventJoinNickname = ({ match, joinEvent, history, createNotification }) => {
   const { enterCode } = match.params
@@ -20,17 +23,15 @@ const EventJoinNickname = ({ match, joinEvent, history, createNotification }) =>
   return (
     <div className="event-join">
       <div className="event-join-container">
-        <div className="label">Enter your nickname</div>
-        <input
-          className="input-custom"
+        <CustomTextSmall>Enter your nickname</CustomTextSmall>
+        <CustomInput
           type="text"
           onChange={e => setDisplayName(e.target.value)}
           maxLength={18}
           autoFocus
+          center
         />
-        <button className="btn-custom btn" onClick={clickHandler}>
-          Join
-        </button>
+        <CustomButton onClick={clickHandler}>JOIN</CustomButton>
       </div>
     </div>
   )

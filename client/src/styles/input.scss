@@ -5,14 +5,14 @@ input {
   font-family: Poppins, Nunito sans-serif;
 }
 
-.input-custom {
+.input-custom,
+.custom-input {
   width: 100%;
   font-size: 20px;
   font-weight: 500;
   padding: 0.5em 1em;
   border: none;
   border-radius: 8px;
-  text-align: center;
   background: var(--color-background-2);
   color: var(--color-text-3);
   border: 1px solid transparent;

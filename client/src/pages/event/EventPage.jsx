@@ -7,10 +7,8 @@ import "./eventPage.scss"
 const EventPage = () => {
   return (
     <div className="event-page">
-      <div className="even-page-container">
-        <EventNavbar />
-        <EventSlide />
-      </div>
+      <EventNavbar />
+      <EventSlide />
     </div>
   )
 }

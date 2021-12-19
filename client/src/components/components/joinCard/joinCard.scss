@@ -2,7 +2,7 @@
 
 .join-card-content {
   @include flex-center-center-column();
-  max-width: 380px;
+  max-width: 400px;
   width: 100%;
   padding: 40px;
   gap: 15px;
@@ -10,13 +10,6 @@
   @media (max-width: 500px) {
     padding: 40px 20px 20px 20px;
   }
-
-  .name {
-    font-size: 36px;
-    padding-bottom: 20px;
-    color: var(--color-text-2);
-  }
-
   .event-join {
     width: 100%;
     .event-join-container {
