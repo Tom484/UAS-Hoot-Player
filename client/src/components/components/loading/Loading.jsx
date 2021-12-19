@@ -1,19 +1,14 @@
 import React from "react"
-import BubbleBackground from "../bubbleBackground/BubbleBackground"
-import LineBackground from "../lineBackground/LineBackground"
+import CustomBackground from "../customBackground/CustomBackground"
 import LoadingCard from "../loadingCard/LoadingCard"
 
 import "./loading.scss"
 
-const Loading = ({ label }) => {
+const Loading = ({ name }) => {
   return (
-    <div className="loading-component">
-      <LineBackground />
-      <BubbleBackground />
-      <div className="loading-component-container">
-        <LoadingCard label={label} />
-      </div>
-    </div>
+    <CustomBackground navbar>
+      <LoadingCard name={name} />
+    </CustomBackground>
   )
 }
 

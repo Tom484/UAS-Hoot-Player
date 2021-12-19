@@ -2,9 +2,9 @@ import React from "react"
 import { connect } from "react-redux"
 import { ICONCloseSquareBold, ICONCupBold } from "../../../icons/Icons"
 import { selectEventDataEvent, selectEventDataResults } from "../../../redux/event/eventSelectors"
-import BubbleBackground from "../../components/bubbleBackground/BubbleBackground"
+import CustomBackground from "../../components/customBackground/CustomBackground"
 import CustomResultCard from "../../components/customResultCard/CustomResultCard"
-import LineBackground from "../../components/lineBackground/LineBackground"
+import { CustomTextInfoBgMedium, CustomTextLarge } from "../../components/customText/CustomText"
 import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation"
 
 import "./slideGameResults.scss"
@@ -15,28 +15,22 @@ const SlideGameResults = ({ eventDataResults, eventData }) => {
   }
 
   return (
-    <div className="slide-game-results">
-      <LineBackground />
-      <BubbleBackground />
-      <div className="slide-game-results-container">
-        <CustomResultCard>
-          {eventDataResults?.lastAnswer ? (
-            <ICONCupBold className="result-icon" />
-          ) : (
-            <ICONCloseSquareBold className="result-icon" />
-          )}
-
-          <div className="text-large text-center">
-            {eventDataResults?.lastAnswer ? "Correct" : "Wrong"}{" "}
-            {eventDataResults?.lastScore || "0"} points
-          </div>
-
-          <div className="text-information-medium-background">
-            You are currently on {eventDataResults?.order || "x"} position. Keep going, keep going.
-          </div>
-        </CustomResultCard>
-      </div>
-    </div>
+    <CustomBackground>
+      <CustomResultCard>
+        {eventDataResults?.lastAnswer ? (
+          <ICONCupBold className="result-icon" />
+        ) : (
+          <ICONCloseSquareBold className="result-icon" />
+        )}
+        <CustomTextLarge>
+          {eventDataResults?.lastAnswer ? "Correct" : "Wrong"} {eventDataResults?.lastScore || "0"}{" "}
+          points
+        </CustomTextLarge>
+        <CustomTextInfoBgMedium center>
+          You are currently on {eventDataResults?.order || "x"} position. Keep going, keep going.
+        </CustomTextInfoBgMedium>
+      </CustomResultCard>
+    </CustomBackground>
   )
 }
 

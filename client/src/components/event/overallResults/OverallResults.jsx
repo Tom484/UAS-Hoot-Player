@@ -3,31 +3,26 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import { ICONCupBold } from "../../../icons/Icons"
 import { selectEventDataResults } from "../../../redux/event/eventSelectors"
-import BubbleBackground from "../../components/bubbleBackground/BubbleBackground"
+import CustomBackground from "../../components/customBackground/CustomBackground"
+import CustomButton from "../../components/customButton/CustomButton"
 import CustomResultCard from "../../components/customResultCard/CustomResultCard"
-import LineBackground from "../../components/lineBackground/LineBackground"
+import { CustomTextInfoBgSmall, CustomTextLarge } from "../../components/customText/CustomText"
 
 import "./overallResults.scss"
 
 const OverallResults = ({ eventDataResults, history }) => {
   return (
-    <div className="overall-results">
-      <BubbleBackground />
-      <LineBackground />
-      <div className="overall-results-container">
-        <CustomResultCard>
-          <ICONCupBold className="result-icon" />
-          <div className="position">You finished {eventDataResults?.order || "x"}</div>
-          <div className="text-information-small-background">
-            Even if you are perfect, keep learning, practicing, training and never settle down,
-            because you may not be on top tomorrow.
-          </div>
-          <button className="btn btn-custom" onClick={() => history.push("/")}>
-            OK
-          </button>
-        </CustomResultCard>
-      </div>
-    </div>
+    <CustomBackground>
+      <CustomResultCard>
+        <ICONCupBold className="result-icon" />
+        <CustomTextLarge>You finished {eventDataResults?.order || "x"}</CustomTextLarge>
+        <CustomTextInfoBgSmall>
+          Even if you are perfect, keep learning, practicing, training and never settle down,
+          because you may not be on top tomorrow.
+        </CustomTextInfoBgSmall>
+        <CustomButton onClick={() => history.push("/")}>OK</CustomButton>
+      </CustomResultCard>
+    </CustomBackground>
   )
 }
 

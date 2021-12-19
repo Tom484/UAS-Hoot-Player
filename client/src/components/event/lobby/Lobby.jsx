@@ -4,13 +4,7 @@ import Loading from "../../components/loading/Loading"
 import "./lobby.scss"
 
 const Lobby = () => {
-  return (
-    <div className="lobby">
-      <div className="lobby-container">
-        <Loading label="Wait for the event to start." />
-      </div>
-    </div>
-  )
+  return <Loading name="Wait for the event to start." />
 }
 
 export default Lobby

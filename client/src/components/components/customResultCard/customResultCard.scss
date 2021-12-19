@@ -1,7 +1,7 @@
 @import "../../../styles/mixins.scss";
 .custom-result-card {
   padding: 15px;
-  max-width: 500px;
+  max-width: 480px;
   width: 100%;
   .custom-result-card-container {
     @include flex-center-center-column();
