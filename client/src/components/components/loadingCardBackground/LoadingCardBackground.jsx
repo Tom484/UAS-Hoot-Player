@@ -4,7 +4,7 @@ import LoadingCard from "../loadingCard/LoadingCard"
 
 import "./loading.scss"
 
-const Loading = ({ name }) => {
+const LoadingCardBackground = ({ name }) => {
   return (
     <CustomBackground navbar>
       <LoadingCard name={name} />
@@ -12,4 +12,4 @@ const Loading = ({ name }) => {
   )
 }
 
-export default Loading
+export default LoadingCardBackground

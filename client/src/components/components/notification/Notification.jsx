@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { ICONCloseSquareOutline } from "../../../icons/Icons"
+import { ICONCloseSquareBold } from "../../../icons/Icons"
 import { deleteNotification } from "../../../redux/notifications/notificationsActions"
 
 import "./notification.scss"
@@ -11,8 +11,8 @@ const Notification = ({ notification, deleteNotification }) => {
       <div className="notification-container">
         <div className="title">{notification.title}</div>
         <div className="message">{notification.message}</div>
-        <ICONCloseSquareOutline
-          className="cancel"
+        <ICONCloseSquareBold
+          className="icon-cancel"
           onClick={() => deleteNotification(notification.id)}
         />
         <div className={"type " + notification.type}></div>

@@ -1,105 +1,21 @@
 .notifications {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  padding: 15px;
-  z-index: 100000;
-  width: 100%;
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  z-index: 100000;
+  padding: 15px;
+  width: 100%;
+  right: 0px;
+  top: 0px;
 
   .notifications-container {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 15px;
-    font-size: 14px;
     width: 350px;
     @media screen and (max-width: 600px) {
       width: 100%;
-    }
-    .notification {
-      width: 100%;
-      .notification-container {
-        border-radius: 8px;
-        background: var(--color-background-1);
-        padding: 20px;
-        @media screen and (max-width: 600px) {
-          gap: 10px;
-        }
-        width: 100%;
-        box-shadow: var(--box-shadow-medium);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        position: relative;
-        overflow: hidden;
-        .notification-icon {
-          width: 25px;
-          height: 25px;
-        }
-        .title {
-          font-size: 20px;
-          font-weight: 600;
-        }
-        .message {
-          color: var(--color-text-6);
-          font-size: 13px;
-        }
-        .cancel {
-          position: absolute;
-          top: 10px;
-          right: 15px;
-          height: 24px;
-          width: 24px;
-          fill: var(--color-text-4);
-          padding: 3px;
-          border-radius: 4px;
-          background: var(--color-background-2);
-          cursor: pointer;
-          @media screen and (max-width: 600px) {
-            display: none;
-          }
-        }
-        .btn-cancel {
-          display: none;
-          width: 100%;
-          padding: 10px;
-          border-radius: 8px;
-          font-weight: 700;
-          background: var(--color-main-2);
-          letter-spacing: 1px;
-          color: var(--color-white);
-          text-align: center;
-          cursor: pointer;
-          @media screen and (max-width: 600px) {
-            display: block;
-          }
-        }
-        .type {
-          @media screen and (max-width: 600px) {
-            display: none;
-          }
-          position: absolute;
-          bottom: 0px;
-          right: 0px;
-          top: 0;
-          width: 5px;
-          background: var(--color-background-2);
-          &.warning {
-            background: red;
-          }
-          &.success {
-            background: var(--color-main-2);
-          }
-          &.error {
-            background: red;
-          }
-          &.information {
-            background: var(--color-main-2);
-          }
-        }
-      }
     }
   }
 }

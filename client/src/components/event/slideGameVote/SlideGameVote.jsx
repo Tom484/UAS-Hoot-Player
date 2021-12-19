@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import { ICONCloudBold, ICONDropBold, ICONFlashBold, ICONMoonBold } from "../../../icons/Icons"
 import { voteEventStart } from "../../../redux/event/eventActions"
-import Loading from "../../components/loading/Loading"
+import LoadingCardBackground from "../../components/loadingCardBackground/LoadingCardBackground"
 
 import "./slideGameVote.scss"
 
@@ -15,7 +15,7 @@ const SlideGameVote = ({ voteEvent }) => {
   }
 
   if (voted) {
-    return <Loading name="Wait a moment for the other players." />
+    return <LoadingCardBackground name="Wait a moment for the other players." />
   }
 
   return (

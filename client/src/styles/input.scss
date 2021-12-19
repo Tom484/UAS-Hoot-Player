@@ -4,19 +4,3 @@ input {
   outline: none;
   font-family: Poppins, Nunito sans-serif;
 }
-
-.input-custom,
-.custom-input {
-  width: 100%;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 8px;
-  background: var(--color-background-2);
-  color: var(--color-text-3);
-  border: 1px solid transparent;
-  &:focus {
-    border: 1px solid var(--color-background-3);
-  }
-}

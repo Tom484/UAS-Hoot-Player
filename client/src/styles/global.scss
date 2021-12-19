@@ -3,7 +3,8 @@
 @import "./icon.scss";
 @import "./colors.scss";
 @import "./scrollbar.scss";
-@import "./text.scss";
+@import "./fontWeight.scss";
+@import "./mixins.scss";
 
 *,
 *::before,
@@ -24,18 +25,6 @@ body {
 .w-100 {
   width: 100%;
 }
-.fw-400 {
-  font-weight: 400;
-}
-.fw-500 {
-  font-weight: 500;
-}
-.fw-600 {
-  font-weight: 600;
-}
-.fw-700 {
-  font-weight: 700;
-}
 
 .cursor-pointer {
   cursor: pointer;
@@ -53,15 +42,11 @@ input:-webkit-autofill:active {
 }
 
 .cover-fullscreen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
+  @include flex-center-center-column();
   min-height: calc(100vh - 60px);
+  width: 100%;
 }
 
-/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

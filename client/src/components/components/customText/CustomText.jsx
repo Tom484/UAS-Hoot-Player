@@ -1,4 +1,5 @@
 import React from "react"
+import "./customText.scss"
 
 export const CustomTextLarge = ({ children, center = false, ...properties }) => {
   return (

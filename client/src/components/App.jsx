@@ -7,7 +7,7 @@ import HomePage from "../pages/home/HomePage"
 import NotFoundPage from "../pages/notFound/NotFoundPage"
 import { updateDataEvent, updateResultsEvent } from "../redux/event/eventActions"
 import { selectEventDataConnect, selectEventDataProfile } from "../redux/event/eventSelectors"
-import LoadingAnimation from "./components/loadingAnimation/LoadingAnimation"
+import LoadingAnimationDatabase from "./components/loadingAnimation/LoadingAnimationDatabase"
 import Notifications from "./components/notifications/Notifications"
 
 const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResultsEvent }) => {
@@ -37,7 +37,7 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
   return (
     <div className="app">
       <Notifications />
-      <LoadingAnimation />
+      <LoadingAnimationDatabase />
       <Switch>
         <Route exact path="/event" component={EventPage} />
         <Route exact path="/" component={HomePage} />

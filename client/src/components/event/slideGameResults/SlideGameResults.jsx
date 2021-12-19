@@ -3,14 +3,15 @@ import { connect } from "react-redux"
 import { ICONCloseSquareBold, ICONCupBold } from "../../../icons/Icons"
 import { selectEventDataEvent, selectEventDataResults } from "../../../redux/event/eventSelectors"
 import CustomBackground from "../../components/customBackground/CustomBackground"
-import CustomLoadingAnimation from "../../components/customLoadingAnimation/CustomLoadingAnimation"
+import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation"
 import CustomResultCard from "../../components/customResultCard/CustomResultCard"
 import { CustomTextInfoBgMedium, CustomTextLarge } from "../../components/customText/CustomText"
+
 import "./slideGameResults.scss"
 
 const SlideGameResults = ({ eventDataResults, eventData }) => {
   if (eventData?.slideIndex !== eventDataResults?.lastDataUpdateSlideIndex) {
-    return <CustomLoadingAnimation />
+    return <LoadingAnimation />
   }
 
   return (

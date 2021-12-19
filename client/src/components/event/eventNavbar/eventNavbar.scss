@@ -1,15 +1,14 @@
 @import "../../../styles/colors.scss";
+@import "../../../styles/mixins.scss";
 
 .event-navbar {
-  width: 100%;
-  box-shadow: var(--box-shadow-medium);
+  @include flex-center-center();
+  position: fixed;
   z-index: 10000;
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
+  width: 100%;
   top: 0;
+  box-shadow: var(--box-shadow-medium);
   background: var(--color-background-1);
 
   .event-navbar-container {

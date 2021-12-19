@@ -1,27 +1,20 @@
 import React from "react"
-import { connect } from "react-redux"
-import { selectIsEventLoading } from "../../../redux/event/eventSelectors"
 import RollerAnimation from "../../animation/rollerAnimation/RollerAnimation"
+import CustomBackground from "../customBackground/CustomBackground"
 
-import "./loadingAnimation.scss"
-
-const LoadingAnimation = ({ isEventLoading }) => {
-  if (!isEventLoading) return <></>
-
+const LoadingAnimation = () => {
   return (
-    <div className="loading-animation">
-      <div className="loading-animation-container">
-        <div className="loading-card">
-          <RollerAnimation />
-          <div className="label">Please wait</div>
+    <CustomBackground>
+      <div className="loading-animation">
+        <div className="loading-animation-container">
+          <div className="loading-card">
+            <RollerAnimation />
+            <div className="label">Please wait</div>
+          </div>
         </div>
       </div>
-    </div>
+    </CustomBackground>
   )
 }
 
-const mapStateToProps = state => ({
-  isEventLoading: selectIsEventLoading(state),
-})
-
-export default connect(mapStateToProps)(LoadingAnimation)
+export default LoadingAnimation
