@@ -19,7 +19,6 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
     setPreviousEnterCode(enterCode)
     firestore.doc(`events/${enterCode}/data/event`).onSnapshot(snapshot => {
       const data = snapshot.data()
-      console.log(data)
       updateDataEvent(data)
     })
     // eslint-disable-next-line
@@ -30,7 +29,6 @@ const App = ({ eventDataConnect, updateDataEvent, eventDataProfile, updateResult
     setPreviousEnterCode(enterCode)
     firestore.doc(`events/${enterCode}/players/${eventDataProfile.id}`).onSnapshot(snapshot => {
       const data = snapshot.data()
-      console.log(data)
       updateResultsEvent(data)
     })
     // eslint-disable-next-line
