@@ -4,9 +4,9 @@ import LoadingCard from "../loadingCard/LoadingCard"
 
 import "./loading.scss"
 
-const LoadingCardBackground = ({ name }) => {
+const LoadingCardBackground = ({ name, navbar = false }) => {
   return (
-    <CustomBackground navbar>
+    <CustomBackground navbar={navbar}>
       <LoadingCard name={name} />
     </CustomBackground>
   )

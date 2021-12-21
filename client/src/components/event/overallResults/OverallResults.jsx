@@ -12,7 +12,7 @@ import "./overallResults.scss"
 
 const OverallResults = ({ eventDataResults, history }) => {
   return (
-    <CustomBackground>
+    <CustomBackground navbar>
       <CustomResultCard>
         <ICONCupBold className="result-icon" />
         <CustomTextLarge>You finished {eventDataResults?.order || "x"}</CustomTextLarge>

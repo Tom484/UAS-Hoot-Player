@@ -15,7 +15,7 @@ const SlideGameResults = ({ eventDataResults, eventData }) => {
   }
 
   return (
-    <CustomBackground>
+    <CustomBackground navbar>
       <CustomResultCard>
         {eventDataResults?.lastAnswer ? (
           <ICONCupBold className="result-icon" />

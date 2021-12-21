@@ -4,7 +4,7 @@ import LoadingCardBackground from "../../components/loadingCardBackground/Loadin
 import "./slideGamePreview.scss"
 
 const SlideGamePreview = () => {
-  return <LoadingCardBackground name="Read the question and you can vote in a moment." />
+  return <LoadingCardBackground navbar name="Read the question and you can vote in a moment." />
 }
 
 export default SlideGamePreview

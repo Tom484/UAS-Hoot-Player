@@ -15,7 +15,7 @@ const SlideGameVote = ({ voteEvent }) => {
   }
 
   if (voted) {
-    return <LoadingCardBackground name="Wait a moment for the other players." />
+    return <LoadingCardBackground navbar name="Wait a moment for the other players." />
   }
 
   return (
