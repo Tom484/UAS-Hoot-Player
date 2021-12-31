@@ -82,3 +82,13 @@ export { ReactComponent as ICONCupOutline } from "./icons/cup/cup-outline.svg"
 export { ReactComponent as ICONCloseSquareBold } from "./icons/close-square/close-square-bold.svg"
 export { ReactComponent as ICONCloseSquareBroken } from "./icons/close-square/close-square-broken.svg"
 export { ReactComponent as ICONCloseSquareOutline } from "./icons/close-square/close-square-outline.svg"
+
+// Calendar
+export { ReactComponent as ICONCloseCalendarBold } from "./icons/calendar/calendar-bold.svg"
+export { ReactComponent as ICONCloseCalendarBroken } from "./icons/calendar/calendar-broken.svg"
+export { ReactComponent as ICONCloseCalendarOutline } from "./icons/calendar/calendar-outline.svg"
+
+// Clock
+export { ReactComponent as ICONCloseClockBold } from "./icons/clock/clock-bold.svg"
+export { ReactComponent as ICONCloseClockBroken } from "./icons/clock/clock-broken.svg"
+export { ReactComponent as ICONCloseClockOutline } from "./icons/clock/clock-outline.svg"

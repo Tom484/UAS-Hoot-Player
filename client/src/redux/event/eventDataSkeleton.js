@@ -11,7 +11,7 @@ export const eventDataSkeleton = ({ enterCode, playerId, displayName }) => {
   }
 }
 
-export const eventPlayerSkeleton = ({ playerId, displayName }) => {
+export const eventPlayerSkeleton = ({ playerId, displayName, timeDifference }) => {
   return {
     id: playerId,
     displayName,
@@ -21,5 +21,6 @@ export const eventPlayerSkeleton = ({ playerId, displayName }) => {
     lastAnswer: false,
     lastDataUpdateSlideIndex: -1,
     consecutiveCorrectAnswers: 0,
+    timeDifference,
   }
 }

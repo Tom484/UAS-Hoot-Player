@@ -16,6 +16,7 @@ import { selectEventDataConnect, selectEventDataProfile } from "./eventSelectors
 import { createNotification } from "../notifications/notificationsActions"
 import { NOTIFICATIONS } from "../notifications/notificationsTypes"
 import { eventDataSkeleton, eventPlayerSkeleton } from "./eventDataSkeleton"
+import { getTimeDifference } from "../../functions/time/getTimeDifference"
 
 export function* joinEventAsync({ payload: { displayName, enterCode, history } }) {
   try {
@@ -25,7 +26,11 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
     const playerId = uuid()
     const playersRef = yield firestore.doc(`events/${enterCode}/players/${playerId}`)
 
-    yield playersRef.set(eventPlayerSkeleton({ displayName, playerId }))
+    const playerTimeDifference = yield getTimeDifference()
+
+    yield playersRef.set(
+      eventPlayerSkeleton({ displayName, playerId, timeDifference: playerTimeDifference })
+    )
     yield put(joinEventSuccess(eventDataSkeleton({ displayName, playerId, enterCode })))
 
     yield history.push("/event")
