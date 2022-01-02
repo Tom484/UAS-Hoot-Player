@@ -6,7 +6,6 @@ import { connect } from "react-redux"
 import { selectEventDataEvent, selectEventDataProfile } from "../../../redux/event/eventSelectors"
 
 import "./slideGame.scss"
-import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation"
 import LoadingCardBackground from "../../components/loadingCardBackground/LoadingCardBackground"
 
 const SlideGame = ({ eventDataEvent, userProfile: { timeDifference } }) => {
