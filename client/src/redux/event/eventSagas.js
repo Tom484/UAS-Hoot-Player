@@ -31,7 +31,16 @@ export function* joinEventAsync({ payload: { displayName, enterCode, history } }
     yield playersRef.set(
       eventPlayerSkeleton({ displayName, playerId, timeDifference: playerTimeDifference })
     )
-    yield put(joinEventSuccess(eventDataSkeleton({ displayName, playerId, enterCode })))
+    yield put(
+      joinEventSuccess(
+        eventDataSkeleton({
+          displayName,
+          playerId,
+          enterCode,
+          timeDifference: playerTimeDifference,
+        })
+      )
+    )
 
     yield history.push("/event")
   } catch (error) {

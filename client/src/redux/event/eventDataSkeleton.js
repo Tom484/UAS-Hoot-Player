@@ -1,12 +1,13 @@
-export const eventDataSkeleton = ({ enterCode, playerId, displayName }) => {
+export const eventDataSkeleton = ({ enterCode, playerId, displayName, timeDifference }) => {
   return {
     event: {},
     connect: {
-      enterCode: enterCode,
+      enterCode,
     },
     profile: {
       id: playerId,
       displayName,
+      timeDifference,
     },
   }
 }

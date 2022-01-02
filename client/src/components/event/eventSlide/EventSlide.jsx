@@ -7,13 +7,10 @@ import { selectEventDataEvent, STATUS_TYPES } from "../../../redux/event/eventSe
 
 const EventSlide = ({ eventDataEvent }) => {
   const { status } = eventDataEvent
-  return (
-    <div>
-      {status === STATUS_TYPES.LOBBY && <Lobby />}
-      {status === STATUS_TYPES.GAME && <SlideGame />}
-      {status === STATUS_TYPES.OVERALL_RESULTS && <OverallResults />}
-    </div>
-  )
+
+  if (status === STATUS_TYPES.LOBBY) return <Lobby />
+  if (status === STATUS_TYPES.GAME) return <SlideGame />
+  if (status === STATUS_TYPES.OVERALL_RESULTS) return <OverallResults />
 }
 const mapStateToProps = state => ({
   eventDataEvent: selectEventDataEvent(state),
