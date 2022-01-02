@@ -8,10 +8,12 @@ import LoadingCardBackground from "../../components/loadingCardBackground/Loadin
 
 const EventSlide = ({ eventDataEvent }) => {
   const { status } = eventDataEvent
+
   if (status === STATUS_TYPES.LOBBY) return <Lobby />
   if (status === STATUS_TYPES.GAME) return <SlideGame />
   if (status === STATUS_TYPES.OVERALL_RESULTS) return <OverallResults />
-  return <LoadingCardBackground />
+
+  return <LoadingCardBackground navbar />
 }
 const mapStateToProps = state => ({
   eventDataEvent: selectEventDataEvent(state),

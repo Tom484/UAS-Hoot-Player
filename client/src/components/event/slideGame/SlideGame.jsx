@@ -7,6 +7,7 @@ import { selectEventDataEvent, selectEventDataProfile } from "../../../redux/eve
 
 import "./slideGame.scss"
 import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation"
+import LoadingCardBackground from "../../components/loadingCardBackground/LoadingCardBackground"
 
 const SlideGame = ({ eventDataEvent, userProfile: { timeDifference } }) => {
   const { openVoteAt, closeVoteAt } = eventDataEvent
@@ -27,7 +28,7 @@ const SlideGame = ({ eventDataEvent, userProfile: { timeDifference } }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setRenderSlide(RENDER_SLIDE_TYPES.SLIDE_GAME_VOTE)
-    }, openVoteAt - new Date().getTime() - timeDifference)
+    }, openVoteAt - new Date().getTime() + timeDifference)
     return () => clearTimeout(timer)
     // eslint-disable-next-line
   }, [eventDataEvent])
@@ -35,7 +36,7 @@ const SlideGame = ({ eventDataEvent, userProfile: { timeDifference } }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setRenderSlide(RENDER_SLIDE_TYPES.SLIDE_GAME_RESULTS)
-    }, closeVoteAt - new Date().getTime() - timeDifference)
+    }, closeVoteAt - new Date().getTime() + timeDifference)
     return () => clearTimeout(timer)
     // eslint-disable-next-line
   }, [eventDataEvent])
@@ -43,7 +44,8 @@ const SlideGame = ({ eventDataEvent, userProfile: { timeDifference } }) => {
   if (renderSlide === RENDER_SLIDE_TYPES.SLIDE_GAME_PREVIEW) return <SlideGamePreview />
   if (renderSlide === RENDER_SLIDE_TYPES.SLIDE_GAME_VOTE) return <SlideGameVote />
   if (renderSlide === RENDER_SLIDE_TYPES.SLIDE_GAME_RESULTS) return <SlideGameResults />
-  return <LoadingAnimation />
+
+  return <LoadingCardBackground />
 }
 
 const mapStateToProps = state => ({
