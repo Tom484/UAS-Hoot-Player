@@ -4,7 +4,7 @@ import Lobby from "../lobby/Lobby"
 import SlideGame from "../slideGame/SlideGame"
 import OverallResults from "../overallResults/OverallResults"
 import { selectEventDataEvent, STATUS_TYPES } from "../../../redux/event/eventSelectors"
-import LoadingCardBackground from "../../components/loadingCardBackground/LoadingCardBackground"
+import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation"
 
 const EventSlide = ({ eventDataEvent }) => {
   const { status } = eventDataEvent
@@ -13,7 +13,7 @@ const EventSlide = ({ eventDataEvent }) => {
   if (status === STATUS_TYPES.GAME) return <SlideGame />
   if (status === STATUS_TYPES.OVERALL_RESULTS) return <OverallResults />
 
-  return <LoadingCardBackground navbar />
+  return <LoadingAnimation />
 }
 const mapStateToProps = state => ({
   eventDataEvent: selectEventDataEvent(state),

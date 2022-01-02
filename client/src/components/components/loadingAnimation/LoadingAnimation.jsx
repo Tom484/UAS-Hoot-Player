@@ -1,6 +1,7 @@
 import React from "react"
 import RollerAnimation from "../../animation/rollerAnimation/RollerAnimation"
 import CustomBackground from "../customBackground/CustomBackground"
+import "./loadingAnimation.scss"
 
 const LoadingAnimation = () => {
   return (
@@ -9,7 +10,6 @@ const LoadingAnimation = () => {
         <div className="loading-animation-container">
           <div className="loading-card">
             <RollerAnimation />
-            <div className="label">Please wait</div>
           </div>
         </div>
       </div>
