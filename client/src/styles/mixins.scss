@@ -9,3 +9,97 @@
   align-items: center;
   flex-direction: column;
 }
+@mixin flex-center-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-spaceBetween-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flex-spaceBetween-center-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin flex-spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flex-spaceBetween-column {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@mixin flex-spaceAround-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin flex-spaceAround-center-column {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin flex-spaceAround {
+  display: flex;
+  justify-content: space-around;
+}
+@mixin flex-spaceAround-column {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+@mixin flex-spaceBetween-flexStart-column {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+}
+@mixin flex-spaceBetween-flexEnd-column {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: column;
+}
+@mixin flex-flexStart-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+@mixin flex-flexStart-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@mixin disableUserSelect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@mixin flex-center-flexStart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+@mixin flex-center-flexStart-column {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
