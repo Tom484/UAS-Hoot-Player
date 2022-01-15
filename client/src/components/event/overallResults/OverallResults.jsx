@@ -15,7 +15,7 @@ const OverallResults = ({ eventDataResults, history }) => {
     <CustomBackground navbar>
       <CustomResultCard>
         <ICONCupBold className="result-icon" />
-        <CustomTextLarge>You finished {eventDataResults?.order || "x"}</CustomTextLarge>
+        <CustomTextLarge>You finished {eventDataResults?.position || "x"}</CustomTextLarge>
         <CustomTextInfoBgSmall>
           Even if you are perfect, keep learning, practicing, training and never settle down,
           because you may not be on top tomorrow.
