@@ -27,7 +27,7 @@ const SlideGameResults = ({ eventDataResults, eventData }) => {
           points
         </CustomTextLarge>
         <CustomTextInfoBgMedium center>
-          You are currently on {eventDataResults?.order || "x"} position. Keep going, keep going.
+          You are currently on {eventDataResults?.position || "x"} position. Keep going, keep going.
         </CustomTextInfoBgMedium>
       </CustomResultCard>
     </CustomBackground>
